@@ -4,7 +4,7 @@
 </script>
 
 <template>
-  <section id="hero" class="relative w-full pt-[119px]">
+  <section id="hero" class="relative w-full fl-pt-[42px/119px]">
     <!-- Background image: the full floral composition -->
     <div class="relative w-full">
       <img

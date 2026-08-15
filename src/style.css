@@ -1,4 +1,8 @@
 @import "tailwindcss";
+@plugin "fluid-tailwindcss" {
+  minviewport: 402;
+  maxviewport: 1920;
+}
 
 /* ===== Custom Fonts ===== */
 @font-face {
@@ -65,18 +69,26 @@
   font-display: swap;
 }
 
-/* ===== Tailwind Theme ===== */
+/* ===== Tailwind Theme (Design Tokens) ===== */
 @theme {
+  /* Typography / Fonts */
   --font-brush: 'Mister Brush', cursive;
   --font-next: 'NEXT ART', sans-serif;
   --font-kurland: 'Kurland', serif;
 
+  /* Colors */
   --color-coral: #FF7F50;
   --color-green-dark: #3B5D2A;
   --color-green-accent: #68A90A;
   --color-green-text: #3B5D2A;
   --color-beige: #F4E2D0;
   --color-cream: #FBFFFB;
+  --color-gray-decoration: #D9D9D9;
+
+  /* Border Radii */
+  --radius-card: 18px;
+  --radius-card-lg: 20px;
+  --radius-pill: 10px;
 }
 
 /* ===== Base Styles ===== */

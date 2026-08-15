@@ -12,23 +12,25 @@ const scrollTo = (target) => {
 </script>
 
 <template>
-  <header class="fixed top-0 left-0 w-full z-50 bg-coral h-[119px] flex items-center px-8">
+  <header
+    class="fixed top-0 left-0 w-full z-50 bg-[#ff7f50] fl-h-[42px/119px] flex items-center justify-between fl-pl-[4px/98px] fl-pr-[8px/74px]"
+  >
     <!-- Left logo: district admin -->
-    <div class="flex items-center gap-4 shrink-0">
+    <div class="fl-w-[74px/248px] fl-h-[30px/99px] relative overflow-hidden shrink-0 flex items-center">
       <img
         src="/assets/74aedee773af94d21ab08413f3130d2f6b6d29ec.webp"
-        alt="Администрация Красногвардейского района"
-        class="h-[99px] w-auto object-contain"
+        alt="Администрация Красногвардейского района Санкт-Петербурга"
+        class="absolute left-0 w-full h-[250.51%] -top-[63.64%] max-w-none pointer-events-none object-cover"
       />
     </div>
 
     <!-- Navigation -->
-    <nav class="flex-1 flex justify-center gap-16">
+    <nav class="flex items-center justify-center fl-gap-[18px/180px] mx-auto">
       <a
         v-for="link in navLinks"
         :key="link.target"
         :href="link.target"
-        class="font-next font-bold text-[30px] text-black no-underline hover:opacity-70 transition-opacity"
+        class="font-next font-bold fl-text-[12px/30px] text-black uppercase no-underline hover:opacity-70 transition-opacity whitespace-nowrap leading-none"
         @click.prevent="scrollTo(link.target)"
       >
         {{ link.label }}
@@ -36,16 +38,16 @@ const scrollTo = (target) => {
     </nav>
 
     <!-- Right logos -->
-    <div class="flex items-center gap-4 shrink-0">
+    <div class="flex items-center fl-gap-[8px/39px] shrink-0">
       <img
         src="/assets/07ca9858337afbeb01362d3733f2776895fcb5ce.webp"
-        alt="Д4"
-        class="h-[97px] w-auto object-contain"
+        alt="Детская библиотека № 4"
+        class="fl-w-[25px/97px] fl-h-[26px/97px] object-contain shrink-0 pointer-events-none"
       />
       <img
         src="/assets/b93f860de1b7cd7023e2ba941c1ca7322d47a9bb.webp"
         alt="ЦБС Красногвардейского района"
-        class="h-[113px] w-auto object-contain"
+        class="fl-w-[29px/113px] fl-h-[29px/113px] object-contain shrink-0 pointer-events-none"
       />
     </div>
   </header>

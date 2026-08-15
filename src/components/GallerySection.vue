@@ -161,22 +161,14 @@ const row2 = galleryItems.slice(4, 8)
     </div>
 
     <!-- Pansies flower border at bottom -->
-    <div class="relative z-10 flex justify-center overflow-hidden h-[200px]">
-      <img
-        src="/assets/035ba688cad44b9c1e8d30ed6b16b094b14bcc9f.webp"
-        alt="Анютины глазки"
-        class="h-full w-auto object-cover"
-      />
-      <img
-        src="/assets/035ba688cad44b9c1e8d30ed6b16b094b14bcc9f.webp"
-        alt=""
-        class="h-full w-auto object-cover"
-      />
-      <img
-        src="/assets/035ba688cad44b9c1e8d30ed6b16b094b14bcc9f.webp"
-        alt=""
-        class="h-full w-auto object-cover"
-      />
+    <div class="relative z-10 flex justify-center overflow-hidden h-[180px] -mb-10 pointer-events-none">
+      <div v-for="n in 3" :key="'pansies-'+n" class="relative w-[720px] h-[180px] shrink-0 overflow-hidden">
+        <img
+          src="/assets/035ba688cad44b9c1e8d30ed6b16b094b14bcc9f.webp"
+          alt="Анютины глазки"
+          class="absolute w-full h-[350%] left-0 top-[-128%] max-w-none object-contain"
+        />
+      </div>
     </div>
   </section>
 </template>
