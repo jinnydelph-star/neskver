@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+/* ===== Custom Fonts ===== */
+@font-face {
+  font-family: 'Mister Brush';
+  src: url('/fonts/MisterBrush.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NEXT ART';
+  src: url('/fonts/NEXT ART_Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NEXT ART';
+  src: url('/fonts/NEXT ART_Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NEXT ART';
+  src: url('/fonts/NEXT ART_SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NEXT ART';
+  src: url('/fonts/NEXT ART_Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NEXT ART';
+  src: url('/fonts/NEXT ART_Heavy.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kurland';
+  src: url('/fonts/Kurland-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kurland';
+  src: url('/fonts/Kurland-Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ===== Tailwind Theme ===== */
+@theme {
+  --font-brush: 'Mister Brush', cursive;
+  --font-next: 'NEXT ART', sans-serif;
+  --font-kurland: 'Kurland', serif;
+
+  --color-coral: #FF7F50;
+  --color-green-dark: #3B5D2A;
+  --color-green-accent: #68A90A;
+  --color-green-text: #3B5D2A;
+  --color-beige: #F4E2D0;
+  --color-cream: #FBFFFB;
+}
+
+/* ===== Base Styles ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'NEXT ART', sans-serif;
+  background: white;
+  overflow-x: hidden;
+}
+
+/* ===== Location Card Accordion ===== */
+.location-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+}
+
+.location-content.expanded {
+  max-height: 2000px;
+  transition: max-height 0.7s ease-in;
+}
+
+.expand-btn {
+  transition: transform 0.3s ease;
+}
+
+.expand-btn.rotated {
+  transform: rotate(180deg);
+}
+
+/* Gallery card hover */
+.gallery-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gallery-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}

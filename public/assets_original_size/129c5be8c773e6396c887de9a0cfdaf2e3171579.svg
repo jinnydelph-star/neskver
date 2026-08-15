@@ -1,0 +1,19 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="56.3086" height="46.2742" viewBox="0 0 56.3086 46.2742" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 26">
+<g id="Vector 45" filter="url(#filter0_g_4001_119)">
+<path d="M23.803 7.05281C19.4676 7.08042 13.4697 3.05281 12.803 5.55281C12.1363 8.05281 10.803 14.0528 10.803 14.0528C10.803 14.0528 9.46967 21.3861 8.803 24.5528C8.13634 27.7195 0.176852 39.8002 6.303 40.0528C10.2049 40.2137 10.8747 35.9231 14.303 34.0528C24.2686 28.6161 40.017 42.9189 43.303 32.0528C44.6079 27.7378 42.6856 25.0445 42.303 20.5528C41.9039 15.8672 44.5396 11.9643 41.303 8.55281C39.256 6.39518 37.2304 6.07792 34.303 5.55281C30.2259 4.82148 27.9451 7.02643 23.803 7.05281Z" fill="#68A90A"/>
+</g>
+<path id="Vector 44" d="M9.30301 8.55274C6.30301 9.55274 2.80301 8.55277 2.80301 4.55293C2.80301 0.856703 8.26777 1.55196 8.26777 1.55196M17.303 44.552C13.803 44.552 11.303 43.0527 11.303 39.0792C11.303 35.1057 14.5776 33.5527 14.5776 32.8247C14.5776 32.8247 15.6976 23.1911 14.5776 17.1883C13.3699 10.7152 8.26777 1.55196 8.26777 1.55196M8.26777 1.55196H42.803C42.803 1.55196 48.303 6.05274 47.803 17.1883C47.3605 27.0428 46.1269 32.8247 46.1269 32.8247M17.303 44.552C20.803 44.552 21.803 34.0527 14.5776 32.8247M17.303 44.552C20.2185 45.052 50.8593 44.552 50.8593 44.552C50.8593 44.552 54.6401 41.7085 54.803 39.0792C54.9815 36.1972 50.8593 32.8247 50.8593 32.8247H46.1269M14.5776 32.8247H46.1269" stroke="black" stroke-width="3"/>
+</g>
+<defs>
+<filter id="filter0_g_4001_119" x="1.19209e-07" y="0.734379" width="47.7511" height="43.3228" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feTurbulence type="fractalNoise" baseFrequency="0.25 0.25" numOctaves="3" seed="1917" />
+<feDisplacementMap in="shape" scale="8" xChannelSelector="R" yChannelSelector="G" result="displacedImage" width="100%" height="100%" />
+<feMerge result="effect1_texture_4001_119">
+<feMergeNode in="displacedImage"/>
+</feMerge>
+</filter>
+</defs>
+</svg>
