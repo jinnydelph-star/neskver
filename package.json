@@ -1,0 +1,17 @@
+{
+  "name": "neskver-eco-trail",
+  "version": "1.0.0",
+  "description": "(не)скверное место — Эко-тропа по МО Большая Охта",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "download-assets": "node scripts/download-assets.js",
+    "convert-webp": "node scripts/convert-to-webp.js"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.3",
+    "vite": "^5.4.1"
+  }
+}
