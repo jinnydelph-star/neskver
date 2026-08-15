@@ -7,16 +7,13 @@
     <div class="max-w-[1920px] mx-auto px-[4%] md:px-[8%]">
       <!-- Logo -->
       <div class="flex items-center justify-center fl-mb-[16px/40px]">
-        <img
-          src="/assets/588b9de8c108b3012c092ae21c779c9d32f4477e.webp"
-          alt="Логотип"
-          class="fl-w-[77px/180px] fl-h-[77px/180px] object-contain"
-        />
+        <img src="/assets/588b9de8c108b3012c092ae21c779c9d32f4477e.webp" alt="Логотип"
+          class="fl-w-[77px/180px] fl-h-[77px/180px] object-contain" />
       </div>
 
       <!-- Scrollbar decoration -->
       <div class="flex justify-center fl-mb-[16px/32px]">
-        <div class="bg-[#d9d9d9] rounded-[10px] fl-h-[14px/26px] fl-w-[180px/343px]"></div>
+        <div class="bg-gray-decoration rounded-pill fl-h-[14px/26px] fl-w-[180px/343px]"></div>
       </div>
 
       <!-- Library name -->
@@ -25,12 +22,12 @@
       </h2>
 
       <!-- Contact info: 2 columns -->
-      <div class="grid grid-cols-2 fl-gap-x-[16px/48px] fl-gap-y-[16px/32px] max-w-[1200px] mx-auto">
+      <div class="grid grid-cols-2 fl-gap-x-[16px/48px] fl-gap-y-[16px/32px] max-w-300 mx-auto">
         <!-- Left: address + phone + logos -->
         <div>
           <h3 class="font-brush fl-text-[16px/30px] text-black mb-1 md:mb-2">адрес:</h3>
           <p class="font-next fl-text-[11px/22px] text-black fl-leading-[18px/40px]">
-            Большая Пороховская ул.<br/>
+            Большая Пороховская ул.<br />
             д. 12/34
           </p>
 
@@ -43,16 +40,10 @@
 
           <!-- Small logos -->
           <div class="flex items-center fl-gap-[8px/16px] fl-mt-[12px/24px]">
-            <img
-              src="/assets/536ef787f07de1d367cde3b573db9a51997b8e2f.webp"
-              alt=""
-              class="fl-h-[21px/59px] w-auto object-contain"
-            />
-            <img
-              src="/assets/83e2b4b043340cb6a21e986168a831d8bea5e89d.webp"
-              alt=""
-              class="fl-h-[23px/64px] w-auto object-contain"
-            />
+            <img src="/assets/536ef787f07de1d367cde3b573db9a51997b8e2f.webp" alt=""
+              class="fl-h-[21px/59px] w-auto object-contain" />
+            <img src="/assets/83e2b4b043340cb6a21e986168a831d8bea5e89d.webp" alt=""
+              class="fl-h-[23px/64px] w-auto object-contain" />
           </div>
         </div>
 

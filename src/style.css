@@ -69,38 +69,66 @@
   font-display: swap;
 }
 
-/* ===== Tailwind Theme (Design Tokens) ===== */
+/* ===== Tailwind Theme Tokens ===== */
 @theme {
-  /* Typography / Fonts */
-  --font-brush: 'Mister Brush', cursive;
-  --font-next: 'NEXT ART', sans-serif;
-  --font-kurland: 'Kurland', serif;
+  /* Typography / Font Families */
+  --font-brush: 'Mister Brush', cursive, sans-serif;
+  --font-next: 'NEXT ART', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-kurland: 'Kurland', serif, sans-serif;
 
-  /* Colors */
+  /* Primitive & Brand Colors */
   --color-coral: #FF7F50;
+  --color-forest: #3B5D2A;
+  --color-forest-deep: #273A1E;
+  --color-lime: #68A90A;
+  --color-olive: #84964A;
+  --color-orange-vibrant: #F75912;
+  --color-sand: #F4E2D0;
+  --color-cream: #FBFFFB;
+  --color-gray-decoration: #D9D9D9;
+
+  /* Aliases for backwards compatibility */
   --color-green-dark: #3B5D2A;
   --color-green-accent: #68A90A;
   --color-green-text: #3B5D2A;
   --color-beige: #F4E2D0;
-  --color-cream: #FBFFFB;
-  --color-gray-decoration: #D9D9D9;
 
   /* Border Radii */
-  --radius-card: 18px;
-  --radius-card-lg: 20px;
+  --radius-img: 18px;
+  --radius-card: 20px;
   --radius-pill: 10px;
+
+  /* Shadows */
+  --shadow-flower-soft: -6px 3px 24.7px 0px rgba(0, 0, 0, 0.44);
+  --shadow-flower-hard: -11px 11px 27.7px 0px rgba(0, 0, 0, 1);
+  --shadow-card-hover: 0 16px 32px -8px rgba(39, 58, 30, 0.3);
 }
 
 /* ===== Base Styles ===== */
+:root {
+  --color-surface-base: #ffffff;
+  --color-surface-header: #FF7F50;
+  --color-surface-gallery: #3B5D2A;
+  --color-surface-gallery-deep: #273A1E;
+  --color-text-main: #000000;
+  --color-text-brand: #3B5D2A;
+  --color-text-badge: #FF7F50;
+  --color-text-sand: #F4E2D0;
+}
+
 html {
   scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   margin: 0;
   padding: 0;
-  font-family: 'NEXT ART', sans-serif;
-  background: white;
+  font-family: var(--font-next);
+  background-color: var(--color-surface-base);
+  color: var(--color-text-main);
   overflow-x: hidden;
 }
 
@@ -108,27 +136,30 @@ body {
 .location-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s ease-out;
+  transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.35s ease;
+  opacity: 0;
 }
 
 .location-content.expanded {
-  max-height: 2000px;
-  transition: max-height 0.7s ease-in;
+  max-height: 2500px;
+  opacity: 1;
+  transition: max-height 0.65s cubic-bezier(0, 0, 0.2, 1), opacity 0.45s ease;
 }
 
 .expand-btn {
-  transition: transform 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .expand-btn.rotated {
   transform: rotate(180deg);
 }
 
-/* Gallery card hover */
+/* Gallery card hover animation */
 .gallery-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease;
 }
+
 .gallery-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: var(--shadow-card-hover);
 }
