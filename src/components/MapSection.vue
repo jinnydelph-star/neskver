@@ -3,10 +3,10 @@
 </script>
 
 <template>
-  <section id="map" class="relative w-full bg-white py-8">
+  <section id="map" class="relative w-full bg-white fl-py-[16px/32px]">
     <div class="max-w-[1920px] mx-auto">
       <!-- Map title -->
-      <h2 class="font-brush text-[70px] text-black text-center leading-tight mb-6 px-4">
+      <h2 class="font-brush fl-text-[24px/70px] text-black text-center leading-tight fl-mb-[12px/24px] px-4">
         карта (не)скверных мест на большой охте
       </h2>
 

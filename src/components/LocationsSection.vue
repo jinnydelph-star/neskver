@@ -86,17 +86,17 @@ const rightLocations = locations.filter(l => l.column === 'right')
 </script>
 
 <template>
-  <section class="relative w-full bg-beige/60 py-16">
+  <section class="relative w-full bg-beige/60 fl-py-[24px/64px]">
     <!-- Decorative wavy SVG top border -->
     <div class="absolute top-0 left-0 w-full overflow-hidden leading-none -translate-y-[1px]">
-      <svg viewBox="0 0 1920 120" preserveAspectRatio="none" class="w-full h-[80px]">
+      <svg viewBox="0 0 1920 120" preserveAspectRatio="none" class="w-full fl-h-[30px/80px]">
         <path d="M0,120 L0,60 Q480,0 960,60 Q1440,120 1920,60 L1920,120 Z" fill="#F4E2D0" fill-opacity="0.6"/>
       </svg>
     </div>
 
-    <div class="max-w-[1920px] mx-auto px-[5%]">
+    <div class="max-w-[1920px] mx-auto px-[4%] md:px-[5%]">
       <!-- Two-column grid -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 fl-gap-x-[16px/64px] fl-gap-y-[8px/16px]">
         <!-- Left column -->
         <div>
           <LocationCard
