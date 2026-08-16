@@ -15,7 +15,7 @@
         <img
           src="/assets/map.webp"
           alt="Карта (не)скверных мест на Большой Охте с маршрутом и достопримечательностями"
-          class="w-full h-auto rounded-lg shadow-sm"
+          class="w-full h-auto rounded-lg"
         />
       </div>
     </div>
