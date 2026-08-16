@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <section id="map" class="relative w-full bg-white fl-py-[20px/48px]">
+  <section id="map" class="relative w-full fl-pb-[16px/36px]">
     <div class="max-w-[1920px] mx-auto">
       <!-- Map title -->
       <h2 class="font-brush fl-text-[32px/80px] text-black text-center leading-tight fl-mb-[16px/36px] px-4 tracking-tight">
