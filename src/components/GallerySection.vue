@@ -55,18 +55,14 @@ const buildingItems = [
 </script>
 
 <template>
-  <section class="relative w-full overflow-x-clip">
-    <!-- Wavy dark green background SVG with blur enhancement -->
-    <div class="absolute inset-0 z-0 left-[-10%] h-fit pointer-events-none select-none">
-      <img
-        src="/assets/f50aaf6b98484b915e192c977768bd6d1e8f199f.svg"
-        alt=""
-        class="w-full h-full object-cover opacity-90"
-      />
+  <section class="relative w-full bg-forest  overflow-x-clip">
+    <!-- Wavy dark green background SVG -->
+    <div class="absolute inset-0 z-0 left-[-10%] h-fit bottom-0 pointer-events-none select-none bg-white">
+      <img src="/assets/f50aaf6b98484b915e192c977768bd6d1e8f199f.svg" alt="" class="w-full h-full object-cover" />
     </div>
 
     <!-- Dark background content container -->
-    <div class="relative z-10 fl-py-[24px/64px]">
+    <div class="relative z-10 fl-pt-[32px/64px] fl-pb-[36px/120px]">
       <!-- Title -->
       <h2 class="font-brush fl-text-[32px/84px] text-sand text-center leading-tight mb-2 px-4 tracking-tight">
         галерея рисунков (не)скверных мест
@@ -80,14 +76,16 @@ const buildingItems = [
 
       <!-- Category: РАСТЕНИЯ -->
       <div class="max-w-[1440px] mx-auto px-4 fl-mb-[24px/48px]">
-        <h3 class="font-next font-bold fl-text-[16px/24px] text-sand uppercase tracking-wider text-center fl-mb-[14px/28px]">
+        <h3
+          class="font-next font-bold fl-text-[16px/24px] text-sand uppercase tracking-wider text-center fl-mb-[14px/28px]">
           РАСТЕНИЯ
         </h3>
         <div class="grid grid-cols-2 lg:grid-cols-4 fl-gap-[14px/28px] justify-items-center">
           <div v-for="item in plantItems" :key="item.label" class="flex flex-col items-center">
             <div
               class="gallery-card group relative fl-w-[155px/283px] fl-h-[155px/283px] fl-rounded-[14px/20px] overflow-hidden bg-white shrink-0 cursor-pointer shadow-md">
-              <img :src="item.image" :alt="item.label" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <img :src="item.image" :alt="item.label"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               <!-- Gradient overlay -->
               <div
                 class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-forest/95 opacity-0 group-hover:opacity-100 transition-opacity duration-300 fl-rounded-[14px/20px] flex flex-col justify-end fl-p-[10px/18px]">
@@ -96,8 +94,7 @@ const buildingItems = [
               </div>
             </div>
             <!-- Label below card -->
-            <p
-              class="fl-w-[155px/283px] text-center font-next fl-text-[13px/20px] text-sand mt-2 md:mt-3 leading-snug">
+            <p class="fl-w-[155px/283px] text-center font-next fl-text-[13px/20px] text-sand mt-2 md:mt-3 leading-snug">
               {{ item.label }}
             </p>
           </div>
@@ -105,15 +102,17 @@ const buildingItems = [
       </div>
 
       <!-- Category: ЗДАНИЯ -->
-      <div class="max-w-[1440px] mx-auto px-4 fl-mb-[80px/180px]">
-        <h3 class="font-next font-bold fl-text-[16px/24px] text-sand uppercase tracking-wider text-center fl-mb-[14px/28px]">
+      <div class="max-w-[1440px] mx-auto px-4 fl-mb-[24px/48px]">
+        <h3
+          class="font-next font-bold fl-text-[16px/24px] text-sand uppercase tracking-wider text-center fl-mb-[14px/28px]">
           ЗДАНИЯ
         </h3>
         <div class="grid grid-cols-2 lg:grid-cols-4 fl-gap-[14px/28px] justify-items-center">
           <div v-for="item in buildingItems" :key="item.label" class="flex flex-col items-center">
             <div
               class="gallery-card group relative fl-w-[155px/283px] fl-h-[155px/283px] fl-rounded-[14px/20px] overflow-hidden bg-white shrink-0 cursor-pointer shadow-md">
-              <img :src="item.image" :alt="item.label" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+              <img :src="item.image" :alt="item.label"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
               <!-- Gradient overlay -->
               <div
                 class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-forest/95 opacity-0 group-hover:opacity-100 transition-opacity duration-300 fl-rounded-[14px/20px] flex flex-col justify-end fl-p-[10px/18px]">
@@ -122,8 +121,7 @@ const buildingItems = [
               </div>
             </div>
             <!-- Label below card -->
-            <p
-              class="fl-w-[155px/283px] text-center font-next fl-text-[13px/20px] text-sand mt-2 md:mt-3 leading-snug">
+            <p class="fl-w-[155px/283px] text-center font-next fl-text-[13px/20px] text-sand mt-2 md:mt-3 leading-snug">
               {{ item.label }}
             </p>
           </div>
@@ -131,14 +129,24 @@ const buildingItems = [
       </div>
     </div>
 
-    <!-- Pansies flower border at bottom -->
-    <div class="grid grid-cols-3 absolute bottom-[-23%] left-0 right-0 z-1 pointer-events-none select-none">
-      <div v-for="n in 3" :key="'pansies-' + n" class="-mx-[10%]">
-        <img
-          src="/assets/035ba688cad44b9c1e8d30ed6b16b094b14bcc9f.webp"
-          alt="Анютины глазки"
-          class="rotate-[2.11deg] w-full h-auto"
-        />
+    <!-- Pansies flower border precisely straddling the bottom edge of gallery -->
+    <div class="absolute bottom-0 left-0 w-full z-20 translate-y-[25%] pointer-events-none select-none leading-none">
+      <div class="flex items-center w-[110%] -ml-[5%]">
+        <!-- Segment 1: left (2.11deg) -->
+        <div class="flex-1 rotate-[2.11deg] fl-h-[62px/204px] relative overflow-hidden shrink-0">
+          <img src="/assets/035ba688cad44b9c1e8d30ed6b16b094b14bcc9f.webp" alt="Анютины глазки"
+            class="absolute h-[367%] left-0 top-[-128%] w-full max-w-none object-contain xl:object-cover" />
+        </div>
+        <!-- Segment 2: center (1.84deg) -->
+        <div class="flex-1 rotate-[1.84deg] fl-h-[62px/204px] relative overflow-hidden shrink-0 -ml-[2%]">
+          <img src="/assets/035ba688cad44b9c1e8d30ed6b16b094b14bcc9f.webp" alt="Анютины глазки"
+            class="absolute h-[352%] left-0 top-[-128%] w-full max-w-none object-contain xl:object-cover" />
+        </div>
+        <!-- Segment 3: right (3.49deg) -->
+        <div class="flex-1 rotate-[3.49deg] fl-h-[62px/204px] relative overflow-hidden shrink-0 -ml-[2%]">
+          <img src="/assets/035ba688cad44b9c1e8d30ed6b16b094b14bcc9f.webp" alt="Анютины глазки"
+            class="absolute h-[365%] left-0 top-[-131%] w-full max-w-none object-contain xl:object-cover" />
+        </div>
       </div>
     </div>
   </section>
