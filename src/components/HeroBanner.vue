@@ -20,7 +20,7 @@ import TextFlourish from './TextFlourish.vue'
       <div class="flourish-cover flourish-cover-project" aria-hidden="true"></div>
 
       <!-- Title overlay — positioned on the white area between top waves -->
-      <div class="absolute top-[5%] left-[3%] sm:top-[6%] sm:left-[4%] md:top-[8%] md:left-[10%] flex items-start fl-gap-[6px/24px]">
+      <div class="hero-title absolute top-[5%] left-[3%] sm:top-[6%] sm:left-[4%] md:top-[8%] md:left-[10%] flex items-start fl-gap-[6px/24px]">
         <!-- Logo -->
         <img
           src="/assets/588b9de8c108b3012c092ae21c779c9d32f4477e.webp"
@@ -28,7 +28,7 @@ import TextFlourish from './TextFlourish.vue'
           class="fl-w-[56px/180px] fl-h-[56px/180px] object-contain shrink-0 drop-shadow-xs"
         />
         <!-- Title text -->
-        <div>
+        <div class="min-w-0">
           <h1 class="font-brush fl-text-[26px/96px] leading-none text-black m-0 tracking-tight">
             (не)скверное место
           </h1>
@@ -110,4 +110,29 @@ import TextFlourish from './TextFlourish.vue'
 .flourish-cover-about { left: 46%; top: 44.5%; }
 .flourish-cover-neighborhood { left: 4%; top: 65%; }
 .flourish-cover-project { left: 46%; top: 83%; }
+@media (max-width: 1023px) {
+  .copy-line {
+    display: block;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+  .hero-title {
+    right: 3%;
+  }
+  .hero-title h1 {
+    overflow-wrap: anywhere;
+  }
+}
+@media (max-width: 600px) {
+  #about {
+    width: 52%;
+  }
+  #about p {
+    font-size: clamp(7px, 2vw, 12px);
+    line-height: 1.25;
+  }
+  #about .font-brush {
+    font-size: clamp(9px, 2.5vw, 15px);
+  }
+}
 </style>
