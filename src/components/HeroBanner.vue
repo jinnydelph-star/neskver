@@ -86,6 +86,9 @@ import TextFlourish from './TextFlourish.vue'
 </template>
 
 <style scoped>
+#about {
+  scroll-margin-top: clamp(100px, 11vw, 200px);
+}
 .copy-line {
   display: block;
   white-space: nowrap;
