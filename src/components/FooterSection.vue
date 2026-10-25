@@ -13,13 +13,13 @@
       <!-- 3-Column Footer content -->
       <div class="flex flex-row items-start justify-between fl-gap-[12px/64px]">
         <!-- Col 1: Leaf logo + Social & Partner icons below -->
-        <div class="flex flex-col items-center sm:items-start shrink-0">
+        <div class="flex flex-col items-center shrink-0">
           <img
             src="/assets/588b9de8c108b3012c092ae21c779c9d32f4477e.webp"
             alt="Логотип (Не)скверное место"
             class="fl-w-[77px/219px] fl-h-[77px/219px] object-contain drop-shadow-xs"
           />
-          <div class="flex items-center fl-gap-[10px/24px] fl-mt-[12px/28px]">
+          <div class="flex items-center justify-center fl-gap-[10px/24px] fl-mt-[6px/12px]">
             <a
               href="https://vk.ru/kinder4_spb"
               target="_blank"
