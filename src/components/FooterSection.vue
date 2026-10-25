@@ -7,7 +7,7 @@
     <div class="max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12">
       <!-- Library name -->
       <h2 class="font-brush fl-text-[24px/52px] text-black text-center fl-mb-[24px/56px] tracking-tight">
-        детская библиотека №4
+        детская библиотека № 4
       </h2>
 
       <!-- 3-Column Footer content -->
