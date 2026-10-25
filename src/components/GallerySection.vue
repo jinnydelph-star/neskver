@@ -96,7 +96,10 @@ const categories = [{ title: 'Растения', items: plantItems }, { title: '
     </div>
     <!-- Pansies flower border precisely straddling the bottom edge of gallery -->
     <div class="absolute bottom-0 left-0 w-full z-20 translate-y-[25%] pointer-events-none select-none leading-none">
-      <div class="flex items-center w-[110%] -ml-[5%]">
+      <svg class="absolute inset-0 w-full h-full" viewBox="0 0 1200 100" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 0H1200V77C1160 76 1120 80 1080 79S1000 76 960 78S880 81 840 78S760 76 720 78S640 81 600 79S520 76 480 78S400 81 360 79S280 76 240 78S160 81 120 79S40 76 0 78Z" fill="#3B5D2A" />
+      </svg>
+      <div class="relative flex items-center w-[110%] -ml-[5%]">
         <!-- Segment 1: left (2.11deg) -->
         <div class="flex-1 rotate-[2.11deg] fl-h-[62px/204px] relative overflow-hidden shrink-0">
           <img src="/assets/035ba688cad44b9c1e8d30ed6b16b094b14bcc9f.webp" alt="Анютины глазки"
