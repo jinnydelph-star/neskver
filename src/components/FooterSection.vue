@@ -21,7 +21,7 @@
           />
           <div class="flex items-center fl-gap-[10px/24px] fl-mt-[12px/28px]">
             <a
-              href="https://vk.com"
+              href="https://vk.ru/kinder4_spb"
               target="_blank"
               rel="noopener noreferrer"
               class="hover:opacity-80 transition-opacity"
@@ -33,13 +33,14 @@
                 class="fl-w-[21px/59px] fl-h-[21px/59px] object-contain"
               />
             </a>
-            <div class="flex items-center">
+            <a href="https://kr-cbs.ru/libraries/detskaya4" target="_blank" rel="noopener noreferrer"
+              class="flex items-center hover:opacity-80 transition-opacity" aria-label="Детская библиотека № 4 на сайте ЦБС">
               <img
                 src="/assets/83e2b4b043340cb6a21e986168a831d8bea5e89d.webp"
-                alt="Партнер"
+                alt="ЦБС Красногвардейского района"
                 class="fl-w-[17px/46px] fl-h-[23px/64px] object-contain"
               />
-            </div>
+            </a>
           </div>
         </div>
 

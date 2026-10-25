@@ -6,14 +6,6 @@
   <section class="relative w-full bg-white">
     <!-- Bottom text area that continues from Group1 floral banner -->
     <div class="max-w-[1920px] mx-auto px-[5%] md:px-[8%] fl-py-[24px/64px]">
-      <!-- "Твори – с мечтой" motto -->
-      <div class="flex justify-center fl-mb-[16px/36px] select-none">
-        <div class="rotate-[-10.24deg]">
-          <span class="font-brush fl-text-[18px/32px] text-forest">Твори –</span>
-          <span class="font-next fl-text-[14px/24px] text-forest ml-1">с мечтой</span>
-        </div>
-      </div>
-
       <!-- Project description -->
       <div class="max-w-[840px] mx-auto">
         <p class="font-next fl-text-[13px/24px] text-black leading-relaxed text-center">

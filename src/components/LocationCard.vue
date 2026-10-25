@@ -76,12 +76,8 @@ const toggle = () => {
         <div v-for="(notice, i) in notices" :key="'notice-' + i"
           class="flex items-start gap-2 md:gap-3 fl-mb-[10px/18px]">
           <div class="shrink-0 mt-0.5 md:mt-1 fl-w-[36px/66px]">
-            <svg class="w-full h-auto" viewBox="0 0 66 31">
-              <circle cx="12" cy="15" r="10" fill="none" stroke="#3B5D2A" stroke-width="2" />
-              <circle cx="12" cy="15" r="4" fill="#3B5D2A" />
-              <circle cx="36" cy="15" r="10" fill="none" stroke="#3B5D2A" stroke-width="2" />
-              <circle cx="36" cy="15" r="4" fill="#3B5D2A" />
-            </svg>
+            <img src="/assets/122dff446fd4f4db256b1d191bfd462eb40dda50.svg" alt="" aria-hidden="true"
+              class="w-full h-auto" />
           </div>
           <div>
             <p class="font-kurland text-coral fl-text-[16px/26px] font-normal m-0 tracking-wide">ОБРАТИТЕ ВНИМАНИЕ</p>
@@ -93,11 +89,8 @@ const toggle = () => {
         <!-- Fact callouts (ИНТЕРЕСНЫЙ ФАКТ) -->
         <div v-for="(fact, i) in facts" :key="'fact-' + i" class="flex items-start gap-2 md:gap-3 fl-mb-[14px/24px]">
           <div class="shrink-0 mt-0.5 md:mt-1 fl-w-[28px/52px]">
-            <svg class="w-full h-auto" viewBox="0 0 52 43">
-              <path d="M10 35 C10 15 20 5 30 8 C35 10 38 20 35 30" stroke="#3B5D2A" stroke-width="3" fill="none" />
-              <circle cx="15" cy="38" r="4" fill="#3B5D2A" />
-              <circle cx="25" cy="38" r="4" fill="#3B5D2A" />
-            </svg>
+            <img src="/assets/129c5be8c773e6396c887de9a0cfdaf2e3171579.svg" alt="" aria-hidden="true"
+              class="w-full h-auto" />
           </div>
           <div>
             <p class="font-kurland text-coral fl-text-[16px/26px] font-normal m-0 tracking-wide">ИНТЕРЕСНЫЙ ФАКТ</p>

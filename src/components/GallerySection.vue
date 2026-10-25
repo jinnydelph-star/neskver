@@ -52,86 +52,52 @@ const buildingItems = [
     event: 'волонтёр, Ботанический фото-челлендж «кто живёт в моём дворе», с июня по август 2026 г.',
   },
 ]
+const categories = [{ title: 'Растения', items: plantItems }, { title: 'Здания', items: buildingItems }]
 </script>
 
 <template>
   <section class="relative w-full bg-forest  overflow-x-clip">
-    <!-- Wavy dark green background SVG -->
-    <div class="absolute inset-0 z-0 left-[-10%] h-fit bottom-0 pointer-events-none select-none bg-white">
-      <img src="/assets/f50aaf6b98484b915e192c977768bd6d1e8f199f.svg" alt="" class="w-full h-full object-cover" />
-    </div>
-
-    <!-- Dark background content container -->
-    <div class="relative z-10 fl-pt-[32px/64px] fl-pb-[36px/120px]">
+    <svg class="gallery-wave absolute top-0 left-0 w-full pointer-events-none" viewBox="0 0 1440 180" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M-40-2H1480V200H-40Z" fill="#F4E2D0" />
+      <path d="M-40 120C100 20 160 0 290 50C430 110 480 120 660 60C820 0 910 0 1050 90C1240 190 1340 130 1480 25V200H-40Z" fill="white" />
+      <path d="M-40 155C100 25 160 25 290 85C430 140 480 150 660 85C820 30 910 30 1050 115C1240 210 1340 150 1480 55V200H-40Z" fill="#3B5D2A" />
+    </svg>
+    <div class="gallery-content relative z-10">
       <!-- Title -->
-      <h2 class="font-brush fl-text-[32px/84px] text-sand text-center leading-tight mb-2 px-4 tracking-tight">
+      <h2 class="font-brush fl-text-[22px/68px] text-sand text-center leading-tight mb-2 px-4 tracking-tight">
         галерея рисунков (не)скверных мест
       </h2>
 
       <!-- Subtitle -->
       <p
-        class="font-next fl-text-[12px/16px] text-sand text-center fl-mb-[20px/48px] px-4 max-w-[840px] mx-auto leading-relaxed">
+        class="gallery-subtitle font-next text-sand text-center fl-mb-[20px/48px] px-4 mx-auto leading-relaxed">
         Проект создан совместно с 1 классом ГБОУ СОШ № 140, волонтёрами библиотеки и читателями
       </p>
 
-      <!-- Category: РАСТЕНИЯ -->
-      <div class="max-w-[1440px] mx-auto px-4 fl-mb-[24px/48px]">
-        <h3
-          class="font-next font-bold fl-text-[16px/24px] text-sand uppercase tracking-wider text-center fl-mb-[14px/28px]">
-          РАСТЕНИЯ
-        </h3>
-        <div class="grid grid-cols-2 lg:grid-cols-4 fl-gap-[14px/28px] justify-items-center">
-          <div v-for="item in plantItems" :key="item.label" class="flex flex-col items-center">
-            <div
-              class="gallery-card group relative fl-w-[155px/283px] fl-h-[155px/283px] fl-rounded-[14px/20px] overflow-hidden bg-white shrink-0 cursor-pointer shadow-md">
-              <img :src="item.image" :alt="item.label"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-              <!-- Gradient overlay -->
-              <div
-                class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-forest/95 opacity-0 group-hover:opacity-100 transition-opacity duration-300 fl-rounded-[14px/20px] flex flex-col justify-end fl-p-[10px/18px]">
-                <p class="font-brush fl-text-[12px/20px] text-white mb-0.5 md:mb-1 drop-shadow-xs">{{ item.author }}</p>
-                <p class="font-next fl-text-[11px/16px] text-cream leading-tight drop-shadow-xs">{{ item.event }}</p>
-              </div>
+      <div class="gallery-categories">
+        <div v-for="category in categories" :key="category.title" class="gallery-category">
+          <h3 class="category-title font-next text-sand text-center uppercase">{{ category.title }}</h3>
+          <div class="gallery-scroll" role="region" :aria-label="`Рисунки: ${category.title}`" tabindex="0">
+            <div class="gallery-grid">
+              <figure v-for="item in category.items" :key="item.label" class="gallery-item">
+                <div class="drawing-card" tabindex="0" :aria-label="`${item.label}. ${item.author}. ${item.event}`">
+                  <img :src="item.image" :alt="item.label" class="drawing-image" loading="lazy" />
+                  <div class="drawing-info">
+                    <p class="font-brush drawing-author">{{ item.author }}</p>
+                    <p class="font-next">{{ item.event }}</p>
+                  </div>
+                </div>
+                <figcaption class="font-next text-sand">{{ item.label }}</figcaption>
+              </figure>
             </div>
-            <!-- Label below card -->
-            <p class="fl-w-[155px/283px] text-center font-next fl-text-[13px/20px] text-sand mt-2 md:mt-3 leading-snug">
-              {{ item.label }}
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Category: ЗДАНИЯ -->
-      <div class="max-w-[1440px] mx-auto px-4 fl-mb-[24px/48px]">
-        <h3
-          class="font-next font-bold fl-text-[16px/24px] text-sand uppercase tracking-wider text-center fl-mb-[14px/28px]">
-          ЗДАНИЯ
-        </h3>
-        <div class="grid grid-cols-2 lg:grid-cols-4 fl-gap-[14px/28px] justify-items-center">
-          <div v-for="item in buildingItems" :key="item.label" class="flex flex-col items-center">
-            <div
-              class="gallery-card group relative fl-w-[155px/283px] fl-h-[155px/283px] fl-rounded-[14px/20px] overflow-hidden bg-white shrink-0 cursor-pointer shadow-md">
-              <img :src="item.image" :alt="item.label"
-                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-              <!-- Gradient overlay -->
-              <div
-                class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-forest/95 opacity-0 group-hover:opacity-100 transition-opacity duration-300 fl-rounded-[14px/20px] flex flex-col justify-end fl-p-[10px/18px]">
-                <p class="font-brush fl-text-[12px/20px] text-white mb-0.5 md:mb-1 drop-shadow-xs">{{ item.author }}</p>
-                <p class="font-next fl-text-[11px/16px] text-cream leading-tight drop-shadow-xs">{{ item.event }}</p>
-              </div>
-            </div>
-            <!-- Label below card -->
-            <p class="fl-w-[155px/283px] text-center font-next fl-text-[13px/20px] text-sand mt-2 md:mt-3 leading-snug">
-              {{ item.label }}
-            </p>
           </div>
         </div>
       </div>
     </div>
-
     <!-- Pansies flower border precisely straddling the bottom edge of gallery -->
     <div class="absolute bottom-0 left-0 w-full z-20 translate-y-[25%] pointer-events-none select-none leading-none">
-      <div class="flex items-center w-[110%] -ml-[5%]">
+      <div class="absolute inset-x-0 top-0 h-[88%] bg-forest" aria-hidden="true"></div>
+      <div class="relative flex items-center w-[110%] -ml-[5%]">
         <!-- Segment 1: left (2.11deg) -->
         <div class="flex-1 rotate-[2.11deg] fl-h-[62px/204px] relative overflow-hidden shrink-0">
           <img src="/assets/035ba688cad44b9c1e8d30ed6b16b094b14bcc9f.webp" alt="Анютины глазки"
@@ -151,3 +117,69 @@ const buildingItems = [
     </div>
   </section>
 </template>
+
+<style scoped>
+.gallery-subtitle { font-size: clamp(5px, 0.82vw, 16px); white-space: nowrap; }
+.gallery-wave { height: clamp(70px, 10vw, 190px); }
+.gallery-content { padding: clamp(88px, 9vw, 173px) 0 clamp(100px, 13vw, 250px); }
+.gallery-categories {
+
+  --row-gap: clamp(18px, 3vw, 54px);
+  --caption-height: clamp(32px, 3vw, 52px);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(40px, 18.5vw, 355px);
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 3.8vw, 73px);
+}
+.category-title { font-size: clamp(12px, 1.25vw, 24px); margin-bottom: clamp(14px, 2vw, 34px); }
+.gallery-category { min-width: 0; container-type: inline-size; }
+.gallery-scroll {
+  height: calc(100cqw - clamp(12px, 2.25vw, 43px) + var(--caption-height) * 2 + var(--row-gap) + 32px);
+  padding: 16px;
+  margin: -16px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior-y: contain;
+  scrollbar-width: none;
+  scrollbar-color: #84964a transparent;
+  scrollbar-gutter: auto;
+  border-radius: 8px;
+}
+.gallery-scroll:focus-visible { outline: 2px solid #f4e2d0; outline-offset: 6px; }
+.gallery-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--row-gap) clamp(12px, 2.25vw, 43px); }
+.gallery-item { margin: 0; min-width: 0; }
+.drawing-card { position: relative; aspect-ratio: 1; overflow: hidden; border-radius: clamp(9px, 1.2vw, 22px); background: white; box-shadow: 0 12px 16px rgb(0 0 0 / 32%); }
+.drawing-image { width: 100%; height: 100%; object-fit: cover; display: block; }
+.drawing-info {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 4px;
+  padding: clamp(8px, 1.2vw, 22px);
+  color: white;
+  background: linear-gradient(180deg, transparent 5%, rgb(59 93 42 / 35%) 35%, rgb(59 93 42 / 92%) 100%);
+  font-size: clamp(9px, 0.85vw, 16px);
+  line-height: 1.2;
+  opacity: 0;
+  transition: opacity 350ms ease;
+}
+.drawing-author { font-size: clamp(10px, 1.05vw, 20px); }
+.drawing-card:hover .drawing-info, .drawing-card:focus .drawing-info { opacity: 1; }
+.drawing-card:focus-visible { outline: 2px solid #f4e2d0; outline-offset: -3px; }
+.gallery-item figcaption { min-height: var(--caption-height); padding-top: 8px; font-size: clamp(9px, 0.95vw, 18px); line-height: 1.3; text-align: center; }
+@media (max-width: 600px) {
+  .gallery-categories { grid-template-columns: 1fr; gap: 32px; padding: 0 8%; }
+  .drawing-info { font-size: 11px; }
+}
+@media (prefers-reduced-motion: reduce) { .drawing-info { transition: none; } }
+</style>
+
+
+
+
+
+
