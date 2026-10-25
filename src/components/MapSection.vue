@@ -23,6 +23,9 @@
 </template>
 
 <style scoped>
+#map {
+  scroll-margin-top: clamp(110px, 12vw, 230px);
+}
 .map-artwork {
   margin-top: clamp(-96px, -5vw, -24px);
 }
