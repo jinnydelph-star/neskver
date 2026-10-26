@@ -28,7 +28,7 @@ import TextFlourish from './TextFlourish.vue'
           class="fl-w-[56px/180px] fl-h-[56px/180px] object-contain shrink-0 drop-shadow-xs"
         />
         <!-- Title text -->
-        <div class="min-w-0">
+        <div class="copy-glow relative min-w-0">
           <h1 class="font-brush fl-text-[26px/96px] leading-none text-black m-0 tracking-tight">
             (не)скверное место
           </h1>
@@ -40,7 +40,7 @@ import TextFlourish from './TextFlourish.vue'
       </div>
 
       <!-- "О проекте" text block — positioned in the middle-right white area -->
-      <div class="absolute top-[44%] right-[2%] sm:right-[4%] md:right-[6%] w-[46%] max-w-[700px]" id="about">
+      <div class="copy-glow absolute top-[44%] right-[2%] sm:right-[4%] md:right-[6%] w-[46%] max-w-[700px]" id="about">
         <TextFlourish class="copy-flourish" />
         <p class="font-next fl-text-[8px/22px] text-black leading-tight sm:leading-relaxed">
           <span class="copy-line"><span class="font-brush fl-text-[10px/30px]">(не)скверное место —</span>&nbsp; это экологический проект</span>
@@ -53,13 +53,13 @@ import TextFlourish from './TextFlourish.vue'
       </div>
 
       <!-- "Гуляй – с семьёй" -->
-      <div class="absolute top-[61%] left-[40%] -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rotate-[-8.03deg] select-none">
+      <div class="copy-glow absolute top-[61%] left-[40%] -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rotate-[-8.03deg] select-none">
         <span class="font-brush fl-text-[11px/32px] text-forest inline-block">Гуляй –</span>
         <span class="font-next fl-text-[9px/24px] text-forest inline-block ml-0.5 sm:ml-1">с семьёй</span>
       </div>
 
       <!-- Text block left side — "В большой охте..." -->
-      <div class="absolute top-[70%] left-[9%] w-[38%] max-w-[580px]">
+      <div class="copy-glow absolute top-[70%] left-[9%] w-[38%] max-w-[580px]">
         <TextFlourish class="copy-flourish" />
         <p class="font-next fl-text-[8px/22px] text-black leading-tight sm:leading-relaxed">
           <span class="copy-line">В&nbsp;Большой Охте совсем нет садов, парков,</span>
@@ -70,14 +70,14 @@ import TextFlourish from './TextFlourish.vue'
       </div>
 
       <!-- "Читай – с библиотекой" -->
-      <div class="absolute top-[83%] left-[56%] whitespace-nowrap rotate-[8.75deg] select-none">
+      <div class="copy-glow absolute top-[83%] left-[56%] whitespace-nowrap rotate-[8.75deg] select-none">
         <TextFlourish />
         <span class="font-brush fl-text-[11px/32px] text-forest inline-block">Читай –</span>
         <span class="font-next fl-text-[9px/24px] text-forest inline-block ml-0.5 sm:ml-1">с библиотекой</span>
       </div>
 
       <!-- Aligned with the flower drawing on the right of the composition. -->
-      <div class="absolute top-[95%] left-[47%] whitespace-nowrap rotate-[-10.24deg] select-none">
+      <div class="copy-glow absolute top-[95%] left-[47%] whitespace-nowrap rotate-[-10.24deg] select-none">
         <span class="font-brush fl-text-[11px/32px] text-forest">Твори –</span>
         <span class="font-next fl-text-[9px/24px] text-forest ml-1">с мечтой</span>
       </div>
@@ -86,6 +86,20 @@ import TextFlourish from './TextFlourish.vue'
 </template>
 
 <style scoped>
+.copy-glow {
+  isolation: isolate;
+  text-shadow: 0 0 3px rgb(255 255 255 / 90%), 0 0 8px rgb(255 255 255 / 75%);
+}
+.copy-glow::before {
+  content: '';
+  position: absolute;
+  inset: clamp(-12px, -1vw, -5px);
+  z-index: -1;
+  background: rgb(255 255 255 / 76%);
+  border-radius: 24px;
+  filter: blur(clamp(8px, 1.1vw, 20px));
+  pointer-events: none;
+}
 #about {
   scroll-margin-top: clamp(100px, 11vw, 200px);
 }
