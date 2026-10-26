@@ -93,6 +93,21 @@ const categories = [{ title: 'Растения', items: plantItems }, { title: '
           </div>
         </div>
       </div>
+      <section class="fl-mt-[48px/120px] fl-pb-[32px/80px]" aria-labelledby="yard-title">
+        <h2 id="yard-title" class="font-brush fl-text-[22px/68px] text-sand text-center leading-tight mb-2 px-4 tracking-tight">
+          Кто растёт в моём дворе
+        </h2>
+        <div class="yard-invitation font-next text-sand text-center mx-auto px-4 fl-mt-[20px/40px]">
+          <p>Знаете необычное дерево у дома, бережёте цветущую клумбу во дворе на Большой Пороховской или помните, как сажали сирень у парадной?</p>
+          <p class="fl-mt-[16px/28px]">Поделитесь историей и фотографией — станьте соавтором нашей зелёной карты района!</p>
+        </div>
+        <div class="yard-action flex items-center justify-center fl-gap-[12px/32px] fl-mt-[24px/48px] px-4">
+          <a href="https://forms.yandex.ru/u/6adfb9526d2d737d758d62e5" target="_blank" rel="noopener noreferrer" class="yard-button inline-flex items-center justify-center gap-2 sm:gap-3 font-brush bg-coral text-black text-center no-underline rounded-xl fl-px-[18px/36px] fl-py-[12px/20px] hover:brightness-110 transition focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sand">
+            <span>Заполнить анкету и прислать фото</span>
+            <img src="/assets/crayon-camera.png" alt="" aria-hidden="true" class="yard-camera object-contain shrink-0" loading="lazy" />
+          </a>
+        </div>
+      </section>
     </div>
     <!-- Pansies flower border precisely straddling the bottom edge of gallery -->
     <div class="absolute bottom-0 left-0 w-full z-20 translate-y-[25%] pointer-events-none select-none leading-none">
@@ -121,6 +136,10 @@ const categories = [{ title: 'Растения', items: plantItems }, { title: '
 </template>
 
 <style scoped>
+.yard-invitation { max-width: 1100px; font-size: clamp(13px, calc(10.087px + 0.7246vw), 24px); line-height: 1.625; }
+.yard-button { font-size: clamp(20px, 2vw, 34px); line-height: 1.2; }
+.yard-camera { width: clamp(64px, 8vw, 120px); height: auto; }
+@media (max-width: 420px) { .yard-action { gap: 8px; } .yard-camera { width: 64px; } }
 .gallery-subtitle { font-size: clamp(5px, 0.82vw, 16px); white-space: nowrap; }
 .gallery-wave { height: clamp(70px, 10vw, 190px); }
 .gallery-content { padding: clamp(88px, 9vw, 173px) 0 clamp(100px, 13vw, 250px); }
