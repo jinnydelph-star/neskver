@@ -43,11 +43,12 @@ import TextFlourish from './TextFlourish.vue'
       <div class="copy-glow absolute top-[44%] right-[2%] sm:right-[4%] md:right-[6%] w-[46%] max-w-[700px]" id="about">
         <TextFlourish class="copy-flourish" />
         <p class="font-next fl-text-[8px/22px] text-black leading-tight sm:leading-relaxed">
-          <span class="copy-line"><span class="font-brush fl-text-[10px/30px]">(не)скверное место —</span>&nbsp; это экологический проект</span>
-          <span class="copy-line">по&nbsp;зелёным местам МО Большая Охта</span>
-          <span class="copy-line">в&nbsp;Красногвардейском районе Санкт-Петербурга,</span>
+          <span class="copy-line"><span class="font-brush fl-text-[10px/30px]">(не)скверное место —</span>&nbsp; это экологический</span>
+          <span class="copy-line">и&nbsp;краеведческий проект, посвященный природе</span>
+          <span class="copy-line">и&nbsp;истории Большой Пороховской улицы</span>
+          <span class="copy-line">и&nbsp;зелёным уголкам Большой Охты,</span>
           <span class="copy-line">разработанный в&nbsp;детской библиотеке №&nbsp;4</span>
-          <span class="copy-line">Централизованной библиотечной системе</span>
+          <span class="copy-line">Централизованной библиотечной системы</span>
           <span class="copy-line">Красногвардейского района в&nbsp;2026 году</span>
         </p>
       </div>

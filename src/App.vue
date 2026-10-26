@@ -36,6 +36,19 @@ import FooterSection from './components/FooterSection.vue'
         <div class="relative z-10">
           <MapSection />
           <LocationsSection />
+          <section id="walk" class="walk-section max-w-[1920px] mx-auto px-[4%] md:px-[5%] fl-pt-[48px/120px] fl-pb-[24px/64px]" aria-labelledby="walk-title">
+            <h2 id="walk-title" class="walk-title font-brush text-black text-center leading-tight tracking-tight m-0">
+              Прогулка по Большой Пороховской улице
+            </h2>
+            <img
+              src="/assets/bolshaya-porokhovskaya-transparent.png"
+              alt="Нарисованная карта Большой Пороховской улицы с маршрутом, выделенным оранжевым мелком"
+              width="1680"
+              height="938"
+              class="block w-full h-auto object-contain fl-mt-[24px/56px]"
+              loading="lazy"
+            />
+          </section>
         </div>
       </div>
 
@@ -44,4 +57,15 @@ import FooterSection from './components/FooterSection.vue'
     <FooterSection />
   </div>
 </template>
+
+<style scoped>
+.walk-section {
+  container-type: inline-size;
+  scroll-margin-top: clamp(64px, 9vw, 160px);
+}
+.walk-title {
+  font-size: min(4.6cqw, 68px);
+  white-space: nowrap;
+}
+</style>
 

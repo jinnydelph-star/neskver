@@ -102,38 +102,18 @@ const locations = [
   },
 ]
 
-const leftLocations = locations.filter(l => l.column === 'left')
-const rightLocations = locations.filter(l => l.column === 'right')
+const orderedLocations = [...locations].sort((a, b) => a.number - b.number)
 </script>
 
 <template>
   <section class="relative w-full fl-pt-[16px/32px]">
     <div class="max-w-[1920px] mx-auto px-[4%] md:px-[5%]">
-      <!-- Two-column grid -->
+      <!-- Cards follow numeric order on every screen size. -->
       <div class="grid grid-cols-1 lg:grid-cols-2 fl-gap-x-[20px/64px] fl-gap-y-[12px/20px]">
-        <!-- Left column -->
-        <div class="flex flex-col">
-          <LocationCard
-            v-for="loc in leftLocations"
-            :key="loc.number"
-            :number="loc.number"
-            :title="loc.title"
-            :short-text="loc.shortText"
-            :description="loc.description"
-            :notices="loc.notices || []"
-            :facts="loc.facts || []"
-            :image="loc.image || ''"
-            :has-logo="loc.hasLogo || false"
-            :use-brush-title="loc.useBrushTitle"
-            :is-expanded="expandedId === loc.number"
-            @toggle="toggleLocation"
-          />
-        </div>
+        
 
-        <!-- Right column -->
-        <div class="flex flex-col">
           <LocationCard
-            v-for="loc in rightLocations"
+            v-for="loc in orderedLocations"
             :key="loc.number"
             :number="loc.number"
             :title="loc.title"
@@ -147,7 +127,6 @@ const rightLocations = locations.filter(l => l.column === 'right')
             :is-expanded="expandedId === loc.number"
             @toggle="toggleLocation"
           />
-        </div>
       </div>
     </div>
   </section>

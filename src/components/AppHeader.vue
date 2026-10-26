@@ -2,6 +2,7 @@
 const navLinks = [
   { label: "ПРОЕКТ", target: "#about" },
   { label: "КАРТА", target: "#map" },
+  { label: "ПРОГУЛКА", target: "#walk" },
   { label: "КОНТАКТЫ", target: "#contacts" },
 ];
 
@@ -13,7 +14,7 @@ const scrollTo = (target) => {
 
 <template>
   <header
-    class="fixed top-0 left-0 w-full z-50 bg-coral fl-h-[42px/119px] flex items-center justify-between fl-pl-[4px/98px] fl-pr-[8px/74px] shadow-sm">
+    class="site-header fixed top-0 left-0 w-full z-50 bg-coral fl-h-[42px/119px] flex items-center justify-between fl-pl-[4px/98px] fl-pr-[8px/74px]">
     <!-- Left logo: district admin -->
     <div class="fl-w-[74px/248px] fl-h-[30px/99px] relative overflow-hidden shrink-0 flex items-center">
       <img
@@ -24,12 +25,12 @@ const scrollTo = (target) => {
     </div>
 
     <!-- Navigation -->
-    <nav class="flex items-center justify-center fl-gap-[16px/180px] mx-auto">
+    <nav class="header-nav flex items-center justify-center mx-auto">
       <a
         v-for="link in navLinks"
         :key="link.target"
         :href="link.target"
-        class="font-next font-bold fl-text-[13px/30px] text-black uppercase no-underline hover:opacity-70 active:opacity-90 transition-opacity whitespace-nowrap leading-none tracking-normal select-none"
+        class="header-link font-next font-bold text-black uppercase no-underline hover:opacity-70 active:opacity-90 transition-opacity whitespace-nowrap leading-none tracking-normal select-none"
         @click.prevent="scrollTo(link.target)"
       >
         {{ link.label }}
@@ -51,3 +52,23 @@ const scrollTo = (target) => {
     </div>
   </header>
 </template>
+
+<style scoped>
+.header-nav {
+  gap: clamp(8px, 4.2vw, 80px);
+  padding-inline: clamp(6px, 1.5vw, 28px);
+}
+.header-link {
+  font-size: clamp(9px, 1.55vw, 26px);
+}
+.site-header::after {
+  content: '';
+  position: absolute;
+  top: calc(100% - 2px);
+  left: 0;
+  width: 100%;
+  height: clamp(12px, 1.7vw, 28px);
+  background: url('/assets/header-crayon-edge.svg') left top / 600px 100% repeat-x;
+  pointer-events: none;
+}
+</style>
