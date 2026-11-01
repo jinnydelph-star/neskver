@@ -94,6 +94,20 @@ const walkExpanded = ref(false)
         </div>
       </div>
 
+      <section class="yellow-section relative w-full" aria-labelledby="green-shelf-title">
+        <svg class="yellow-wave absolute top-0 left-0 w-full pointer-events-none" viewBox="0 0 1440 180" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M-40-2H1480V200H-40Z" fill="#F4E2D0" />
+          <path d="M-40 120C100 20 160 0 290 50C430 110 480 120 660 60C820 0 910 0 1050 90C1240 190 1340 130 1480 25V200H-40Z" fill="#FF7F50" />
+          <path d="M-40 138C100 38 160 18 290 68C430 128 480 138 660 78C820 18 910 18 1050 108C1240 208 1340 148 1480 43V200H-40Z" fill="#F4DF87" />
+        </svg>
+        <div class="yellow-content relative z-10">
+          <h2 id="green-shelf-title" class="font-brush fl-text-[22px/68px] text-black text-center leading-tight mb-2 px-4 tracking-tight">ЗЕЛЁНАЯ ПОЛКА</h2>
+          <p class="max-w-[1920px] mx-auto px-[4%] md:px-[5%] fl-mt-[20px/40px] font-next fl-text-[13px/24px] text-black leading-relaxed">
+            Здесь собраны художественные и научно-популярные книги, которые помогут лучше понять природу, смену сезонов, разнообразие флоры вокруг нас и научат бережно относиться к окружающему миру.
+          </p>
+        </div>
+      </section>
+
       <GallerySection />
     </main>
     <FooterSection />
@@ -101,6 +115,16 @@ const walkExpanded = ref(false)
 </template>
 
 <style scoped>
+.yellow-section {
+  background-color: #F4DF87;
+  min-height: clamp(280px, 32vw, 615px);
+}
+.yellow-wave {
+  height: clamp(70px, 10vw, 190px);
+}
+.yellow-content {
+  padding-top: clamp(88px, 9vw, 173px);
+}
 .walk-section {
   container-type: inline-size;
 }

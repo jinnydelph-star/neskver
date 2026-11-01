@@ -63,7 +63,7 @@ const categories = [{ title: 'Растения', items: plantItems }, { title: '
 <template>
   <section class="relative w-full bg-forest  overflow-x-clip">
     <svg class="gallery-wave absolute top-0 left-0 w-full pointer-events-none" viewBox="0 0 1440 180" preserveAspectRatio="none" aria-hidden="true">
-      <path d="M-40-2H1480V200H-40Z" fill="#F4E2D0" />
+      <path d="M-40-2H1480V200H-40Z" fill="#F4DF87" />
       <path d="M-40 120C100 20 160 0 290 50C430 110 480 120 660 60C820 0 910 0 1050 90C1240 190 1340 130 1480 25V200H-40Z" fill="white" />
       <path d="M-40 155C100 25 160 25 290 85C430 140 480 150 660 85C820 30 910 30 1050 115C1240 210 1340 150 1480 55V200H-40Z" fill="#3B5D2A" />
     </svg>
