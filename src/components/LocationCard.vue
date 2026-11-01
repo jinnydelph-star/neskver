@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, defineEmits, ref, watch } from 'vue'
+import InlineVideo from './InlineVideo.vue'
 
 const props = defineProps({
   number: { type: Number, required: true },
@@ -16,26 +16,13 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['toggle'])
-const videoElement = ref(null)
-const baseUrl = import.meta.env.BASE_URL
-const playing = ref(false)
-const toggleVideo = async () => {
-  if (!videoElement.value) return
-  if (videoElement.value.paused) {
-    try { await videoElement.value.play() } catch { playing.value = false }
-  } else videoElement.value.pause()
-}
-watch(() => props.isExpanded, (expanded) => {
-  if (!expanded) videoElement.value?.pause()
-})
-
 const toggle = () => {
   emit('toggle', props.number)
 }
 </script>
 
 <template>
-  <div class="fl-mb-[16px/32px] group z-1">
+  <div :id="`location-${number}`" class="fl-mb-[16px/32px] group z-1">
     <!-- Header row: number + title + short text -->
     <div class="flex items-start fl-gap-[8px/16px] cursor-pointer select-none" @click="toggle">
       <!-- Number (Lime green in Figma) -->
@@ -112,20 +99,7 @@ const toggle = () => {
           </div>
         </div>
 
-        <button v-if="video" type="button"
-          class="relative block w-full max-w-[694px] mt-2 md:mt-4 fl-mb-[14px/26px] overflow-hidden rounded-[14px] md:rounded-[18px] shadow-sm bg-black border-0 p-0 cursor-pointer"
-          :aria-label="playing ? 'Пауза' : 'Воспроизвести видео'" @click="toggleVideo">
-          <video ref="videoElement" :src="baseUrl + video.replace(/^\//, '')" playsinline webkit-playsinline preload="metadata"
-            disablepictureinpicture disableremoteplayback controlslist="nofullscreen nodownload noremoteplayback"
-            class="block w-full h-auto"
-            @play="playing = true" @pause="playing = false" @ended="playing = false"
-            @dblclick.prevent>
-            Ваш браузер не поддерживает видео.
-          </video>
-          <span v-if="!playing" class="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <span class="flex items-center justify-center w-16 h-16 rounded-full bg-black/60 text-white text-3xl" aria-hidden="true">▶</span>
-          </span>
-        </button>
+        <InlineVideo v-if="video" :src="video" :active="isExpanded" class="mt-2 md:mt-4 fl-mb-[14px/26px]" />
         <div v-else-if="image" class="mt-2 md:mt-4 fl-mb-[14px/26px]">
           <img :src="image" :alt="title"
             class="w-full max-w-[694px] h-auto rounded-[14px] md:rounded-[18px] object-cover shadow-sm" />

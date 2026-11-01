@@ -7,6 +7,7 @@ import MapSection from './components/MapSection.vue'
 import LocationsSection from './components/LocationsSection.vue'
 import GallerySection from './components/GallerySection.vue'
 import FooterSection from './components/FooterSection.vue'
+import InlineVideo from './components/InlineVideo.vue'
 const walkExpanded = ref(false)
 </script>
 
@@ -60,6 +61,7 @@ const walkExpanded = ref(false)
                 </svg>
               </button>
             </div>
+            <InlineVideo :active="walkExpanded" v-show="walkExpanded" src="/videos/bolshaya-porokhovskaya.mp4" class="mt-6 mx-auto" />
             <div class="walk-map relative fl-mt-[24px/56px]">
             <img
               src="/assets/bolshaya-porokhovskaya-transparent.png"

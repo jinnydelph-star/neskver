@@ -1,4 +1,9 @@
 <script setup>
+import { ref } from 'vue'
+const selectedDrawing = ref(null)
+const toggleDrawing = (label) => {
+  selectedDrawing.value = selectedDrawing.value === label ? null : label
+}
 const plantItems = [
   {
     image: '/assets/a04a0a7caa5c91502b9c135d827f76fbf2f8eb83.webp',
@@ -80,7 +85,8 @@ const categories = [{ title: 'Растения', items: plantItems }, { title: '
           <div class="gallery-scroll" role="region" :aria-label="`Рисунки: ${category.title}`" tabindex="0">
             <div class="gallery-grid">
               <figure v-for="item in category.items" :key="item.label" class="gallery-item">
-                <div class="drawing-card" tabindex="0" :aria-label="`${item.label}. ${item.author}. ${item.event}`">
+                <div class="drawing-card" :class="{ 'is-open': selectedDrawing === item.label }" tabindex="0" role="button" :aria-expanded="selectedDrawing === item.label" :aria-label="`${item.label}. ${item.author}. ${item.event}`"
+                  @click="toggleDrawing(item.label)" @keydown.enter.prevent="toggleDrawing(item.label)" @keydown.space.prevent="toggleDrawing(item.label)">
                   <img :src="item.image" :alt="item.label" class="drawing-image" loading="lazy" />
                   <div class="drawing-info">
                     <p class="font-brush drawing-author">{{ item.author }}</p>
@@ -189,10 +195,13 @@ const categories = [{ title: 'Растения', items: plantItems }, { title: '
   transition: opacity 350ms ease;
 }
 .drawing-author { font-size: clamp(10px, 1.05vw, 20px); }
-.drawing-card:hover .drawing-info, .drawing-card:focus .drawing-info { opacity: 1; }
+.drawing-card.is-open .drawing-info, .drawing-card:focus-visible .drawing-info { opacity: 1; }
+@media (hover: hover) { .drawing-card:hover .drawing-info { opacity: 1; } }
 .drawing-card:focus-visible { outline: 2px solid #f4e2d0; outline-offset: -3px; }
 .gallery-item figcaption { min-height: var(--caption-height); padding-top: 8px; font-size: clamp(9px, 0.95vw, 18px); line-height: 1.3; text-align: center; }
 @media (max-width: 600px) {
+  .gallery-scroll { height: auto; overflow: visible; overscroll-behavior-y: auto; touch-action: pan-y pinch-zoom; }
+  .drawing-card { touch-action: pan-y pinch-zoom; }
   .gallery-categories { grid-template-columns: 1fr; gap: 32px; padding: 0 8%; }
   .drawing-info { font-size: 11px; }
 }

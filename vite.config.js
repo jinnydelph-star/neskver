@@ -8,6 +8,12 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 5180,
     strictPort: true,
+    watch: {
+      // Polling discovers new public files without Windows file-watch locks.
+      usePolling: true,
+      interval: 300,
+      awaitWriteFinish: { stabilityThreshold: 1000, pollInterval: 100 },
+    },
   },
   plugins: [
     vue(),
