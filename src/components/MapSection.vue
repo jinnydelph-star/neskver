@@ -13,7 +13,7 @@
       <!-- Map image (contains street names, route, hand-drawn markers) -->
       <div class="map-artwork relative w-full max-w-[1600px] mx-auto px-4">
         <img
-          src="/assets/map.webp"
+          src="/assets/map_.webp"
           alt="Карта (не)скверных мест на Большой Охте с маршрутом и достопримечательностями"
           class="w-full h-auto rounded-lg"
         />
