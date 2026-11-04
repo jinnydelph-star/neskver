@@ -47,6 +47,7 @@ const walkExpanded = ref(false)
             </h2>
             </div>
             <div class="flex items-start gap-4 fl-mt-[20px/40px]">
+            <div class="walk-intro flex-1 min-w-0" :class="{ 'walk-intro-expanded': walkExpanded }">
             <div id="walk-description" class="walk-description flex-1 min-w-0 font-next fl-text-[13px/24px] text-black leading-relaxed space-y-5" :class="{ 'walk-collapsed': !walkExpanded }">
               <p>
                 Это одна из главных улиц в районах Большая Охта и Пороховые на правом берегу Невы. Её длина около 2 километров. Она начинается от Большеохтинского проспекта и переходит в Ириновский проспект. Дорога вела к пороховым заводам Петра I, отчего и стала Пороховской. Официальный статус улицы она получила в 1828 году. Слово «Большая» добавили в 1939 году, а свой современный вид улица обрела в 1978 году.
@@ -54,6 +55,10 @@ const walkExpanded = ref(false)
               <p>
                 В сквере Георга Отса растут высокий ясень и можжевельник казацкий. В начале улице также сохранился старинный металлический столб на заклёпках — опора трамвайной линии 1920-х годов. Сейчас он признан памятником истории ленинградского транспорта. Рядом с этим историческим объектом высажены молодые кусты сирени.
               </p>
+            </div>
+              <img v-if="walkExpanded" src="/assets/tram-pole-transparent.png"
+                alt="Карандашный рисунок старинного трамвайного столба на Большой Пороховской улице"
+                class="walk-illustration" loading="lazy" />
             </div>
               <button type="button" class="expand-btn shrink-0 mt-1 md:mt-4 fl-w-[16px/26px] fl-h-[16px/24px] flex items-center justify-center bg-transparent border-none cursor-pointer p-0" :class="{ rotated: walkExpanded }" :aria-expanded="walkExpanded" aria-controls="walk-description" :aria-label="walkExpanded ? 'Свернуть описание прогулки' : 'Развернуть описание прогулки'" @click="walkExpanded = !walkExpanded">
                 <svg class="w-full h-full" viewBox="0 0 25 22" fill="none" aria-hidden="true">
@@ -137,6 +142,22 @@ const walkExpanded = ref(false)
   scroll-margin-top: clamp(64px, calc(21.61px + 5.073vw + 24px), 143px);
 }
 .walk-logo { width: 6cqw; height: 6cqw; max-width: 90px; max-height: 90px; }
+.walk-intro-expanded {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 28%);
+  align-items: center;
+  gap: clamp(20px, 3vw, 56px);
+}
+.walk-illustration {
+  display: block;
+  width: 100%;
+  max-height: 620px;
+  object-fit: contain;
+}
+@media (max-width: 640px) {
+  .walk-intro-expanded { grid-template-columns: minmax(0, 1fr); }
+  .walk-illustration { width: min(70%, 280px); justify-self: center; }
+}
 .walk-collapsed {
   display: -webkit-box;
   -webkit-box-orient: vertical;

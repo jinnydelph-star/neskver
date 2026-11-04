@@ -9,6 +9,7 @@ const props = defineProps({
   notices: { type: Array, default: () => [] },
   facts: { type: Array, default: () => [] },
   image: { type: String, default: '' },
+  illustration: { type: String, default: '' },
   video: { type: String, default: '' },
   isExpanded: { type: Boolean, default: false },
   hasLogo: { type: Boolean, default: false },
@@ -72,6 +73,8 @@ const toggle = () => {
           {{ description }}
         </p>
 
+        <div class="location-details" :class="{ 'has-illustration': illustration }">
+          <div class="location-callouts">
         <!-- Notice callouts (ОБРАТИТЕ ВНИМАНИЕ) -->
         <div v-for="(notice, i) in notices" :key="'notice-' + i"
           class="flex items-start gap-2 md:gap-3 fl-mb-[10px/18px]">
@@ -99,6 +102,12 @@ const toggle = () => {
           </div>
         </div>
 
+          </div>
+          <img v-if="illustration" :src="illustration"
+            :alt="`Рисунок: ${title}`"
+            class="location-illustration" loading="lazy" />
+        </div>
+
         <InlineVideo v-if="video" :src="video" :active="isExpanded" class="mt-2 md:mt-4 fl-mb-[14px/26px]" />
         <div v-else-if="image" class="mt-2 md:mt-4 fl-mb-[14px/26px]">
           <img :src="image" :alt="title"
@@ -108,3 +117,30 @@ const toggle = () => {
     </div>
   </div>
 </template>
+
+<style scoped>
+.location-details.has-illustration {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  align-items: end;
+  gap: clamp(12px, 2vw, 28px);
+}
+.location-callouts { min-width: 0; }
+.location-illustration {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: clamp(14px, 1.25vw, 24px);
+  mix-blend-mode: multiply;
+}
+@media (max-width: 540px) {
+  .location-details.has-illustration {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+  .location-illustration {
+    width: min(100%, 360px);
+    justify-self: center;
+  }
+}
+</style>
