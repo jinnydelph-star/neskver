@@ -32,7 +32,7 @@ const move = (direction) => direction > 0 ? emblaApi.value?.scrollNext() : embla
       <div ref="emblaRef" class="shelf-window">
         <div class="shelf-books">
           <figure v-for="book in books" :key="book.image" class="shelf-book">
-            <div class="cover-space"><img :src="`/assets/books/${book.image}`" :alt="`Обложка книги «${book.title}»`" loading="eager" /></div>
+            <div class="cover-space"><img :src="`/assets/books/${book.image}`" :alt="`Обложка книги «${book.title}»`" loading="lazy" /></div>
             <figcaption class="book-caption"><span class="book-title">{{ book.title }}</span><span v-if="book.author" class="book-author">{{ book.author }}</span></figcaption>
           </figure>
         </div>

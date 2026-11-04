@@ -113,7 +113,7 @@ const toggle = () => {
             class="location-illustration" loading="lazy" />
         </div>
 
-        <InlineVideo v-if="video" :src="video" :active="isExpanded" class="mt-2 md:mt-4 fl-mb-[14px/26px]" />
+        <InlineVideo v-if="video && isExpanded" :src="video" :active="isExpanded" class="mt-2 md:mt-4 fl-mb-[14px/26px]" />
         <div v-else-if="image" class="mt-2 md:mt-4 fl-mb-[14px/26px]">
           <img :src="image" :alt="title"
             class="w-full max-w-[694px] h-auto rounded-[14px] md:rounded-[18px] object-cover shadow-sm" />
