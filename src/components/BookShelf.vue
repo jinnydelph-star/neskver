@@ -101,7 +101,7 @@ function endSwipe(event) {
 .shelf-book { flex: 0 0 calc((100% - (var(--book-count) - 1) * var(--gap)) / var(--book-count)); margin: 0; min-width: 0; text-align: center; }
 @media (prefers-reduced-motion: reduce) { .shelf-books.is-moving { transition-duration: 1ms; } }
 .cover-space { height: clamp(230px, 27vw, 420px); display: flex; align-items: flex-end; justify-content: center; }
-.cover-space img { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; box-shadow: 4px 10px 28px #55451a30; }
+.cover-space img { display: block; max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; border-radius: 8px; box-shadow: 4px 10px 28px #55451a30; }
 .book-caption { padding-top: 20px; line-height: 1.4; }
 .book-title { display: block; font-size: clamp(14px, 1.35vw, 22px); }
 .book-author { display: block; margin-top: 7px; font-size: clamp(12px, 1vw, 16px); }
