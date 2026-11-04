@@ -10,6 +10,7 @@ import TextFlourish from './TextFlourish.vue'
     <div class="relative w-full">
       <img
         src="/assets/Group1.webp"
+        fetchpriority="high"
         alt="Ботаническая композиция с нарисованными цветами"
         class="w-full h-auto block select-none"
       />

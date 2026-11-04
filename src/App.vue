@@ -70,7 +70,7 @@ const walkExpanded = ref(false)
             <InlineVideo :active="walkExpanded" v-show="walkExpanded" src="/videos/bolshaya-porokhovskaya.mp4" class="mt-6 mx-auto" />
             <div class="walk-map relative fl-mt-[24px/56px]">
             <img
-              src="/assets/bolshaya-porokhovskaya-transparent.png"
+              src="/assets/bolshaya-porokhovskaya-transparent.webp"
               alt="Нарисованная карта Большой Пороховской улицы с маршрутом, выделенным оранжевым мелком"
               width="1680"
               height="938"
@@ -173,7 +173,7 @@ const walkExpanded = ref(false)
   position: absolute;
   width: 7%;
   aspect-ratio: 1;
-  background-image: url('/assets/walk-plants.png');
+  background-image: url('/assets/walk-plants.webp');
   background-size: 300% 200%;
   background-repeat: no-repeat;
 }
