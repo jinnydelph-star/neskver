@@ -128,6 +128,7 @@ const walkExpanded = ref(false)
 }
 .yellow-wave {
   height: clamp(70px, 10vw, 190px);
+  transform: translateY(-1px);
 }
 .yellow-content {
   padding-top: clamp(88px, 9vw, 173px);
