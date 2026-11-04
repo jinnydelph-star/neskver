@@ -48,10 +48,15 @@ const toggle = () => {
         </h3>
 
         <!-- Short text (always visible when collapsed) -->
-        <p v-if="shortText && !isExpanded"
-          class="font-next fl-text-[13px/24px] text-black leading-relaxed mt-1 md:mt-2">
-          {{ shortText }}
-        </p>
+        <Transition name="location-preview">
+          <div v-if="!isExpanded && (shortText || illustration)" class="location-summary mt-1 md:mt-2">
+            <p v-if="shortText" class="font-next fl-text-[13px/24px] text-black leading-relaxed min-w-0">
+              {{ shortText }}
+            </p>
+            <img v-if="illustration" :src="illustration" alt="" aria-hidden="true"
+              class="location-thumbnail" loading="lazy" />
+          </div>
+        </Transition>
       </div>
 
       <!-- Expand/collapse triangle button -->
@@ -119,6 +124,35 @@ const toggle = () => {
 </template>
 
 <style scoped>
+.location-summary {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 1.5vw, 24px);
+}
+.location-thumbnail {
+  display: block;
+  flex: 0 0 25%;
+  width: 25%;
+  max-width: 150px;
+  max-height: 140px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+.location-preview-enter-active {
+  transition: opacity 250ms ease, transform 250ms ease;
+}
+.location-preview-enter-from {
+  opacity: 0;
+  transform: translateY(6px);
+}
+.location-illustration {
+  transition: opacity 300ms ease;
+}
+.location-content:not(.expanded) .location-illustration { opacity: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .location-preview-enter-active, .location-illustration { transition: none; }
+}
+
 .location-details.has-illustration {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
