@@ -34,7 +34,7 @@ import TextFlourish from './TextFlourish.vue'
           </h1>
           <p
             class="font-next fl-text-[8px/24px] text-black mt-0.5 sm:mt-1 md:mt-3 max-w-45 sm:max-w-70 md:max-w-180 uppercase leading-snug tracking-wide">
-            ЭКО-ТРОПА ПО МО БОЛЬШАЯ ОХТА КРАСНОГВАРДЕЙСКОГО РАЙОНА СПБ
+            ЭКО-ТРОПА ПО муниципальному образованию БОЛЬШАЯ ОХТА КРАСНОГВАРДЕЙСКОГО РАЙОНА СПБ
           </p>
         </div>
       </div>
