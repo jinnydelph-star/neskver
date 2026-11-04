@@ -168,7 +168,7 @@ const categories = [{ title: 'Растения', items: plantItems }, { title: '
   margin: -16px;
   overflow-y: auto;
   overflow-x: hidden;
-  overscroll-behavior-y: contain;
+  overscroll-behavior-y: auto;
   scrollbar-width: none;
   scrollbar-color: #84964a transparent;
   scrollbar-gutter: auto;
