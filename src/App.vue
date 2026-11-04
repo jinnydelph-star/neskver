@@ -8,6 +8,7 @@ import LocationsSection from './components/LocationsSection.vue'
 import GallerySection from './components/GallerySection.vue'
 import FooterSection from './components/FooterSection.vue'
 import InlineVideo from './components/InlineVideo.vue'
+import BookShelf from './components/BookShelf.vue'
 const walkExpanded = ref(false)
 </script>
 
@@ -110,6 +111,7 @@ const walkExpanded = ref(false)
           <p class="max-w-[1920px] mx-auto px-[4%] md:px-[5%] fl-mt-[20px/40px] font-next fl-text-[13px/24px] text-black leading-relaxed">
             Здесь собраны художественные и научно-популярные книги, которые помогут лучше понять природу, смену сезонов, разнообразие флоры вокруг нас и научат бережно относиться к окружающему миру.
           </p>
+          <BookShelf />
         </div>
       </section>
 
