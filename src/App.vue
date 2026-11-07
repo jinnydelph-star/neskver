@@ -44,12 +44,12 @@ const walkExpanded = ref(false)
             <div id="walk" class="walk-heading flex items-center justify-center">
               <img src="/assets/588b9de8c108b3012c092ae21c779c9d32f4477e.webp" alt="Логотип проекта" class="walk-logo shrink-0 object-contain" />
             <h2 id="walk-title" class="walk-title font-brush text-black text-center leading-tight tracking-tight m-0">
-              Прогулка по Большой Пороховской улице
+              <button type="button" class="walk-title-toggle" :aria-expanded="walkExpanded" aria-controls="walk-description" @click="walkExpanded = !walkExpanded">Прогулка по Большой Пороховской улице</button>
             </h2>
             </div>
             <div class="flex items-start gap-4 fl-mt-[20px/40px]">
             <div class="walk-intro flex-1 min-w-0" :class="{ 'walk-intro-expanded': walkExpanded }">
-            <div id="walk-description" class="walk-description flex-1 min-w-0 font-next fl-text-[13px/24px] text-black leading-relaxed space-y-5" :class="{ 'walk-collapsed': !walkExpanded }">
+            <div id="walk-description" class="walk-description flex-1 min-w-0 font-next fl-text-[13px/24px] text-black leading-relaxed space-y-5" :class="{ 'walk-collapsed': !walkExpanded }" role="button" tabindex="0" :aria-expanded="walkExpanded" :aria-label="walkExpanded ? 'Свернуть описание прогулки' : 'Развернуть описание прогулки'" @click="walkExpanded = !walkExpanded" @keydown.enter.prevent="walkExpanded = !walkExpanded" @keydown.space.prevent="walkExpanded = !walkExpanded">
               <p>
                 Это одна из главных улиц в районах Большая Охта и Пороховые на правом берегу Невы. Её длина около 2 километров. Она начинается от Большеохтинского проспекта и переходит в Ириновский проспект. Дорога вела к пороховым заводам Петра I, отчего и стала Пороховской. Официальный статус улицы она получила в 1828 году. Слово «Большая» добавили в 1939 году, а свой современный вид улица обрела в 1978 году.
               </p>
@@ -102,9 +102,8 @@ const walkExpanded = ref(false)
 
       <section class="yellow-section relative w-full" aria-labelledby="green-shelf-title">
         <svg class="yellow-wave absolute top-0 left-0 w-full pointer-events-none" viewBox="0 0 1440 180" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M-40-2H1480V200H-40Z" fill="#F4E2D0" />
-          <path d="M-40 120C100 20 160 0 290 50C430 110 480 120 660 60C820 0 910 0 1050 90C1240 190 1340 130 1480 25V200H-40Z" fill="#FF7F50" />
-          <path d="M-40 138C100 38 160 18 290 68C430 128 480 138 660 78C820 18 910 18 1050 108C1240 208 1340 148 1480 43V200H-40Z" fill="#F4DF87" />
+          <path d="M-40-2H1480V43C1340 148 1240 208 1050 108C910 18 820 18 660 78C480 138 430 128 290 68C160 18 100 38-40 138Z" fill="#FF7F50" />
+          <path d="M-40-2H1480V25C1340 130 1240 190 1050 90C910 0 820 0 660 60C480 120 430 110 290 50C160 0 100 20-40 120Z" fill="#F4E2D0" />
         </svg>
         <div class="yellow-content relative z-10">
           <h2 id="green-shelf-title" class="font-brush fl-text-[22px/68px] text-black text-center leading-tight mb-2 px-4 tracking-tight">ЗЕЛЁНАЯ ПОЛКА</h2>
@@ -135,6 +134,22 @@ const walkExpanded = ref(false)
 }
 .walk-section {
   container-type: inline-size;
+}
+.walk-title-toggle {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+  transition: color 180ms ease;
+}
+.walk-title-toggle:hover { color: #3B5D2A; }
+.walk-description { cursor: pointer; }
+.walk-title-toggle:focus-visible, .walk-description:focus-visible {
+  outline: 2px solid #3B5D2A;
+  outline-offset: 5px;
 }
 .walk-title {
   font-size: min(4.1cqw, 62px);
