@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+import additions from '../gallery-additions.json'
 const selectedDrawing = ref(null)
 const toggleDrawing = (label) => {
   selectedDrawing.value = selectedDrawing.value === label ? null : label
@@ -57,6 +58,8 @@ const buildingItems = [
     event: 'волонтёр, Ботанический фото-челлендж «кто живёт в моём дворе», с июня по август 2026 г.',
   },
 ]
+plantItems.push(...additions.filter(item => item.category === 'plants'))
+buildingItems.push(...additions.filter(item => item.category === 'buildings'))
 const categories = [{ title: 'Растения', items: plantItems }, { title: 'Здания', items: buildingItems }]
 </script>
 
@@ -84,10 +87,10 @@ const categories = [{ title: 'Растения', items: plantItems }, { title: '
           <h3 class="category-title font-next text-sand text-center uppercase">{{ category.title }}</h3>
           <div class="gallery-scroll" role="region" :aria-label="`Рисунки: ${category.title}`" tabindex="0">
             <div class="gallery-grid">
-              <figure v-for="item in category.items" :key="item.label" class="gallery-item">
-                <div class="drawing-card" :class="{ 'is-open': selectedDrawing === item.label }" tabindex="0" role="button" :aria-expanded="selectedDrawing === item.label" :aria-label="`${item.label}. ${item.author}. ${item.event}`"
-                  @click="toggleDrawing(item.label)" @keydown.enter.prevent="toggleDrawing(item.label)" @keydown.space.prevent="toggleDrawing(item.label)">
-                  <img :src="item.image" :alt="item.label" class="drawing-image" loading="lazy" />
+              <figure v-for="item in category.items" :key="item.image" class="gallery-item">
+                <div class="drawing-card" :class="{ 'is-open': selectedDrawing === item.image }" tabindex="0" role="button" :aria-expanded="selectedDrawing === item.image" :aria-label="`${item.label}. ${item.author}. ${item.event}`"
+                  @click="toggleDrawing(item.image)" @keydown.enter.prevent="toggleDrawing(item.image)" @keydown.space.prevent="toggleDrawing(item.image)">
+                  <img :src="item.image" :alt="item.label" class="drawing-image" :class="{ 'drawing-image-full': item.fullImage && category.title === 'Растения' }" loading="lazy" />
                   <div class="drawing-info">
                     <p class="font-brush drawing-author">{{ item.author }}</p>
                     <p class="font-next">{{ item.event }}</p>
@@ -169,16 +172,20 @@ const categories = [{ title: 'Растения', items: plantItems }, { title: '
   overflow-y: auto;
   overflow-x: hidden;
   overscroll-behavior-y: auto;
-  scrollbar-width: none;
+  scrollbar-width: thin;
   scrollbar-color: #84964a transparent;
   scrollbar-gutter: auto;
   border-radius: 8px;
 }
 .gallery-scroll:focus-visible { outline: 2px solid #f4e2d0; outline-offset: 6px; }
+.gallery-scroll::-webkit-scrollbar { width: 6px; }
+.gallery-scroll::-webkit-scrollbar-thumb { background: #84964a; border-radius: 6px; }
+.gallery-scroll::-webkit-scrollbar-track { background: transparent; }
 .gallery-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--row-gap) clamp(12px, 2.25vw, 43px); }
 .gallery-item { margin: 0; min-width: 0; }
 .drawing-card { position: relative; aspect-ratio: 1; overflow: hidden; border-radius: clamp(9px, 1.2vw, 22px); background: white; box-shadow: 0 12px 16px rgb(0 0 0 / 32%); }
 .drawing-image { width: 100%; height: 100%; object-fit: cover; display: block; }
+.drawing-image-full { object-fit: contain; }
 .drawing-info {
   position: absolute;
   inset: 0;
