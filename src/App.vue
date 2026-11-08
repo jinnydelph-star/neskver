@@ -129,6 +129,17 @@ const walkExpanded = ref(false)
   height: clamp(70px, 10vw, 190px);
   transform: translateY(-1px);
 }
+.yellow-section::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #F4E2D0;
+  z-index: 1;
+  pointer-events: none;
+}
 .yellow-content {
   padding-top: clamp(88px, 9vw, 173px);
 }
