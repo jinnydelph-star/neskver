@@ -9,7 +9,16 @@ import GallerySection from './components/GallerySection.vue'
 import FooterSection from './components/FooterSection.vue'
 import InlineVideo from './components/InlineVideo.vue'
 import BookShelf from './components/BookShelf.vue'
+import WalkGallery from './components/WalkGallery.vue'
 const walkExpanded = ref(false)
+// Positions follow the marked reference, relative to the map artwork.
+const walkMarkers = [
+  [1.9, 41.3], [5.7, 42.3], [9.2, 42.3], [12.6, 43.7],
+  [5.3, 47.5], [11.6, 49.6], [17.3, 49.6], [19.7, 44.5],
+  [31.6, 44.6], [40.5, 45.6], [45.4, 54.0], [50.9, 46.8],
+  [62.2, 47.0], [64.9, 56.1], [68.0, 48.1], [72.9, 49.0],
+  [74.1, 56.1], [77.7, 56.1],
+]
 </script>
 
 <template>
@@ -77,6 +86,18 @@ const walkExpanded = ref(false)
               class="block w-full h-auto object-contain"
               loading="lazy"
             />
+              <div class="walk-markers absolute inset-0">
+                <img
+                  v-for="([left, top], index) in walkMarkers"
+                  :key="index"
+                  src="/assets/588b9de8c108b3012c092ae21c779c9d32f4477e.webp"
+                  :alt="`Отметка маршрута ${index + 1}`"
+                  class="walk-marker"
+                  :style="{ left: `${left}%`, top: `${top}%` }"
+                  tabindex="0"
+                  draggable="false"
+                />
+              </div>
               <div class="walk-plants absolute inset-0 pointer-events-none" aria-hidden="true">
                 <span class="walk-plant plant-one"></span>
                 <span class="walk-plant plant-two"></span>
@@ -96,6 +117,7 @@ const walkExpanded = ref(false)
                 <span class="walk-plant plant-small plant-sixteen"></span>
               </div>
             </div>
+            <WalkGallery />
           </section>
         </div>
       </div>
@@ -194,6 +216,24 @@ const walkExpanded = ref(false)
   line-clamp: 2;
   overflow: hidden;
   max-height: 3.25em;
+}
+.walk-markers { pointer-events: none; }
+.walk-marker {
+  position: absolute;
+  width: 2.7%;
+  height: auto;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 280ms ease;
+  pointer-events: auto;
+}
+.walk-marker:hover,
+.walk-marker:focus-visible {
+  transform: translate(-50%, -50%) scale(1.65);
+  z-index: 1;
+}
+.walk-marker:focus-visible { outline: 2px solid #3B5D2A; outline-offset: 2px; border-radius: 50%; }
+@media (prefers-reduced-motion: reduce) {
+  .walk-marker { transition: none; }
 }
 .walk-plant {
   position: absolute;
