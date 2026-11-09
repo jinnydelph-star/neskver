@@ -10,6 +10,9 @@ import FooterSection from './components/FooterSection.vue'
 import InlineVideo from './components/InlineVideo.vue'
 import BookShelf from './components/BookShelf.vue'
 import WalkGallery from './components/WalkGallery.vue'
+import { walkObjects } from './walk-objects'
+const walkGallery = ref(null)
+const markerObjectOrder = [1, 2, 4, 5, 3, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
 const walkExpanded = ref(false)
 // Positions follow the marked reference, relative to the map artwork.
 const walkMarkers = [
@@ -87,16 +90,18 @@ const walkMarkers = [
               loading="lazy"
             />
               <div class="walk-markers absolute inset-0">
-                <img
+                <button
                   v-for="([left, top], index) in walkMarkers"
                   :key="index"
-                  src="/assets/588b9de8c108b3012c092ae21c779c9d32f4477e.webp"
-                  :alt="`Отметка маршрута ${index + 1}`"
+                  type="button"
+                  :aria-label="walkObjects[markerObjectOrder[index] - 1].title"
                   class="walk-marker"
                   :style="{ left: `${left}%`, top: `${top}%` }"
-                  tabindex="0"
-                  draggable="false"
-                />
+                  @click="walkGallery?.showDrawing(markerObjectOrder[index] - 1)"
+                >
+                  <img src="/assets/588b9de8c108b3012c092ae21c779c9d32f4477e.webp" alt="" draggable="false" />
+                  <span class="walk-marker-tooltip">{{ walkObjects[markerObjectOrder[index] - 1].title }}</span>
+                </button>
               </div>
               <div class="walk-plants absolute inset-0 pointer-events-none" aria-hidden="true">
                 <span class="walk-plant plant-one"></span>
@@ -117,7 +122,7 @@ const walkMarkers = [
                 <span class="walk-plant plant-small plant-sixteen"></span>
               </div>
             </div>
-            <WalkGallery />
+            <WalkGallery ref="walkGallery" />
           </section>
         </div>
       </div>
@@ -219,6 +224,10 @@ const walkMarkers = [
 }
 .walk-markers { pointer-events: none; }
 .walk-marker {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
   position: absolute;
   width: 2.7%;
   height: auto;
@@ -226,6 +235,27 @@ const walkMarkers = [
   transition: transform 280ms ease;
   pointer-events: auto;
 }
+.walk-marker img { display: block; width: 100%; height: auto; }
+.walk-marker-tooltip {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 0;
+  width: max-content;
+  max-width: min(220px, 50vw);
+  padding: 7px 10px;
+  border-radius: 8px;
+  background: #3b5d2a;
+  color: white;
+  font-size: clamp(9px, 0.8vw, 12px);
+  line-height: 1.4;
+  text-align: left;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+.walk-marker:hover .walk-marker-tooltip,
+.walk-marker:focus-visible .walk-marker-tooltip { opacity: 1; visibility: visible; }
 .walk-marker:hover,
 .walk-marker:focus-visible {
   transform: translate(-50%, -50%) scale(1.65);
