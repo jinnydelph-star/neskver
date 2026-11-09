@@ -3,12 +3,17 @@ const navLinks = [
   { label: "ПРОЕКТ", target: "#about" },
   { label: "КАРТА", target: "#map" },
   { label: "ПРОГУЛКА", target: "#walk" },
+  { label: "ЗЕЛЁНАЯ ПОЛКА", target: "#green-shelf-title" },
+  { label: "ГАЛЕРЕЯ", target: "#gallery-title" },
   { label: "КОНТАКТЫ", target: "#contacts" },
 ];
 
 const scrollTo = (target) => {
   const el = document.querySelector(target);
-  if (el) el.scrollIntoView({ behavior: "smooth" });
+  if (el) {
+    const headerHeight = document.querySelector('.site-header')?.getBoundingClientRect().height ?? 0;
+    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - headerHeight - 32, behavior: "smooth" });
+  }
 };
 </script>
 
@@ -55,11 +60,16 @@ const scrollTo = (target) => {
 
 <style scoped>
 .header-nav {
-  gap: clamp(8px, 4.2vw, 80px);
+  gap: clamp(8px, 2.4vw, 46px);
   padding-inline: clamp(6px, 1.5vw, 28px);
 }
 .header-link {
-  font-size: clamp(9px, 1.55vw, 26px);
+  font-size: clamp(8px, 1.15vw, 22px);
+}
+@media (max-width: 640px) {
+  .header-nav { display: grid; grid-template-columns: repeat(3, auto); gap: 7px 10px; }
+  .header-link { text-align: center; font-size: clamp(7px, 1.7vw, 10px); }
+  .site-header { min-height: 54px; }
 }
 .site-header::after {
   content: '';

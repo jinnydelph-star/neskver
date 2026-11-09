@@ -72,7 +72,7 @@ const categories = [{ title: 'Растения', items: plantItems }, { title: '
     </svg>
     <div class="gallery-content relative z-10">
       <!-- Title -->
-      <h2 class="font-brush fl-text-[22px/68px] text-sand text-center leading-tight mb-2 px-4 tracking-tight">
+      <h2 id="gallery-title" class="font-brush fl-text-[22px/68px] text-sand text-center leading-tight mb-2 px-4 tracking-tight">
         галерея рисунков (не)скверных мест
       </h2>
 
