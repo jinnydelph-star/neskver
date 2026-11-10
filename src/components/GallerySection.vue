@@ -111,7 +111,7 @@ const categories = [{ title: 'Растения', items: plantItems }, { title: '
           <p class="fl-mt-[16px/28px]">Поделитесь историей и фотографией — станьте соавтором нашей зелёной карты района!</p>
         </div>
         <div class="yard-action flex items-center justify-center fl-gap-[12px/32px] fl-mt-[24px/48px] px-4">
-          <a href="https://forms.yandex.ru/u/6adfb9526d2d737d758d62e5" target="_blank" rel="noopener noreferrer" class="yard-button inline-flex items-center justify-center gap-2 sm:gap-3 font-brush bg-coral text-black text-center no-underline rounded-xl fl-px-[18px/36px] fl-py-[12px/20px] hover:brightness-110 transition focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sand">
+          <a href="https://forms.yandex.ru/u/6adfb9526d2d737d758d62e5" target="_blank" rel="noopener noreferrer" class="yard-button inline-flex flex-col items-center justify-center gap-2 sm:gap-3 font-brush bg-coral text-black text-center no-underline rounded-xl fl-px-[18px/36px] fl-py-[12px/20px] hover:brightness-110 transition focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sand">
             <span>Заполнить анкету и прислать фото</span>
             <img src="/assets/crayon-camera.png" alt="" aria-hidden="true" class="yard-camera object-contain shrink-0" loading="lazy" />
           </a>
