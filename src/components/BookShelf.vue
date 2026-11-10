@@ -69,6 +69,8 @@ const books = [
   { image: 'trees-details.webp', spread: 'trees-details-spread.jpg', title: 'Деревья', author: 'Лора Хауэлл' },
   { image: 'summer-flowers-1.webp', spread: 'summer-flowers-1-spread.jpg', title: 'Летние цветы. Книга 1', author: '' },
   { image: 'summer-flowers-2.webp', spread: 'summer-flowers-2-spread.jpg', title: 'Летние цветы. Книга 2', author: '' },
+  { image: 'krasnogvardeysky-atlas.jpg', spread: 'krasnogvardeysky-atlas-spread.jpg', title: 'Атлас Красногвардейского района', author: 'Наталья Столбова' },
+  { image: 'okhta-encyclopedia.jpg', spread: 'okhta-encyclopedia-spread.jpg', title: 'Охтинская энциклопедия. Большая Охта', author: 'Александр Краснолуцкий' },
 ]
 
 const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'start', skipSnaps: true })
@@ -253,6 +255,26 @@ const move = (direction) => direction > 0 ? emblaApi.value?.scrollNext() : embla
               <li><strong>Раскрывает тайны зеленых соседей:</strong> о каждом цветке во дворе здесь собраны самые любопытные и неочевидные факты.</li>
             </ol>
             <p class="spread-bibliography"><strong>Гюнтер, Евгения Евгеньевна.</strong><br /><strong>Как тебя зовут?</strong> [Текст] : все о цветах, живущих рядом с нами : [для детей дошкольного возраста] / Евгения Гюнтер ; художник Анна Ритум. - Москва : Пешком в историю, 2019. - [41] с. : цв. ил. - (Мир вокруг нас). - 0+. - <strong>ISBN&nbsp;</strong>978-5-906994-07-3 (в пер.) : Б. ц.</p>
+          </div>
+        </div>
+        <div v-if="selectedBook?.image === 'krasnogvardeysky-atlas.jpg'" v-fit-text class="spread-description">
+          <div class="spread-description-inner">
+            <div class="spread-points">
+              <p><strong>Машина времени прямо во дворе:</strong> ты сможешь перенестись на сотни лет назад и узнать, какие крепости, старинные усадьбы и тайны прятались на месте привычных улиц, детских площадок и набережных Охты.</p>
+              <p><strong>Карты, схемы и архивные фото-расследования:</strong> старинные карты и редкие снимки помогут тебе сравнить прошлые века с современностью и почувствовать себя городским следопытом.</p>
+              <p><strong>Готовый путеводитель для прогулок-приключений:</strong> бери книгу с собой на улицу, чтобы разгадывать исторические загадки района прямо на ходу вместе с друзьями или родителями.</p>
+            </div>
+            <p class="spread-bibliography"><strong>Столбова, Наталья Павловна</strong> (экскурсовод).<br />Атлас Красногвардейского района [Текст] : историко-географический путеводитель / [Н. П. Столбова]. - Санкт-Петербург : Геза Ком, 2017. - 64 с. : ил. - <strong>ISBN&nbsp;</strong>978-5-91704-076-9 (в обл.)</p>
+          </div>
+        </div>
+        <div v-if="selectedBook?.image === 'okhta-encyclopedia.jpg'" v-fit-text class="spread-description">
+          <div class="spread-description-inner">
+            <div class="spread-points">
+              <p><strong>Расследование по секретным архивам:</strong> ты заглянешь в древние летописи, старинные дневники и редкие рукописи, чтобы узнать тайны Большой Охты из первых уст очевидцев.</p>
+              <p><strong>Битвы, крепости и стихийные бедствия:</strong> книга расскажет о грозных средневековых крепостях, сражениях Северной войны, отважных жителях блокадных дней и гигантских наводнениях, затоплявших эти земли.</p>
+              <p><strong>Дома с привидениями прошлого:</strong> обычные многоэтажки и улицы района внезапно раскроют свои вековые секреты — ты узнаешь, кто жил на месте твоего двора задолго до появления Петербурга!</p>
+            </div>
+            <p class="spread-bibliography"><strong>Краснолуцкий, Александр Юрьевич</strong>.<br />Охтинская энциклопедия. Большая Охта [Текст] / Александр Краснолуцкий. - Москва : Центрполиграф ; Санкт-Петербург : МиМ-Дельта, 2010. - 734, [1] с. : ил. - Библиогр.: с. 696-727. - <strong>ISBN&nbsp;</strong>978-5-227-02318-6</p>
           </div>
         </div>
         <div v-if="selectedBook?.image === 'plants-in-city.webp'" v-fit-text class="spread-description">
